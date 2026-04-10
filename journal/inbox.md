@@ -38,3 +38,9 @@ Same vault, same file. Native Obsidian experience.
 ## Entries
 
 (empty — drop your first note here)
+
+
+Alright, it's Friday, April 10th I just got down. Golfing, with my stepdad, Pete and we had a threesome today with Dennis. Our friend probably like 76 years old, retired dude, but he told me to go to cafe 7 7 6. in anglewood. Florida. He said they got a great group or sandwich and a big burger that is hard to finish. So I like the way that sounds. I like good food and I like a lot of food so I just wanted to write this down so I can remember to go check that out at some point. Put it in my maybe like I don't know. Restaurants to visit someday, folder or diners to visit someday. Maybe you can do some research and find the address for me. Figure out how far away it is from Northport, Florida, where I live.
+
+
+You know, I thought of an idea today, kind of it's like a semi formed idea. Since I'm a certified part 107 drone pilot, I was thinking maybe the Golf courses at the high-end Golf courses could use my services. I know they've got like screens and like touchpad ipads on all the Golf carts on the newer courses and the newer Golf carts. So you can like, see an overview, an animated overview of what hole you're on and what it looks like. But what if I went to all the courses and created like drone shots or little videos of each hole? So that people in the Golf carts could see exactly what the hole looks like from above from a bird's eye view. And from like different views, and they could program the screens to play back and change different angles. All from the drone shots I captured. So maybe we can look into that. And figure out if there's a potential revenue stream, there
