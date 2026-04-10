@@ -2,7 +2,12 @@
 # ClipMeta Brain Auto-Loader for Claude Code
 # Run this at session start to load full context
 
-BRAIN_DIR="$HOME/Documents/ClipMeta_Brain"
+# Support both Windows (via WSL) and native paths
+if [ -d "/mnt/c/Users/levic/Documents/ClipMeta_Brain" ]; then
+    BRAIN_DIR="/mnt/c/Users/levic/Documents/ClipMeta_Brain"
+else
+    BRAIN_DIR="$HOME/Documents/ClipMeta_Brain"
+fi
 
 echo "=== Loading ClipMeta Brain ==="
 echo ""
