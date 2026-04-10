@@ -1,5 +1,8 @@
 # Decisions Log
 
+> Architectural and business decisions with reasoning. Cross-references: [[current_state]] · [[product/roadmap]] · [[mistakes]]
+
+
 ## 2026-04-09
 - Created ClipMeta_Brain as operator/manager brain (not application code)
 - Located real codebase: C:\Users\levic\.openclaw\workspace\clipmeta\clipmeta

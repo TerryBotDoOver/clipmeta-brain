@@ -1,5 +1,9 @@
 # Session Handoff
 
+> Continuity notes for the next session. Read alongside [[working_context]] at session start.
+> For chronological detail, see today's [[daily_logs/2026-04-10|daily log]].
+
+
 ## Last Session: 2026-04-09
 
 ### What happened

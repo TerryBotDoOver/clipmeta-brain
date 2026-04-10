@@ -1,5 +1,8 @@
 # Active Issues
 
+> Known bugs, security risks, ops issues. Cross-references: [[next_actions]] · [[dev/feature_backlog]] · [[mistakes]]
+
+
 ## Security
 - video-worker/worker.js still has hardcoded Supabase service key and R2 credentials (lines 24-47). Must be moved to env vars. Note: the Supabase key in this file is now the OLD rotated key and won't work, but it should still be cleaned up.
 

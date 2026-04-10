@@ -84,29 +84,73 @@ Rules:
 
 ---
 
-## MEMORY USAGE
+## MEMORY SYSTEM (OBSIDIAN-STYLE VAULT)
 
-Use these files:
+ClipMeta_Brain is structured as an Obsidian vault with four kinds of memory.
+Use [[wiki-link]] syntax when referencing other vault files so Obsidian's graph view stays useful.
 
-- memory/current_state.md
-- memory/decisions_log.md
-- memory/next_actions.md
-- memory/active_issues.md
-- memory/session_handoff.md
+### 1. Daily Logs (`daily_logs/YYYY-MM-DD.md`)
+A fresh dated file every day. Captures everything we worked on -- bugs fixed, features built, decisions made, things learned. This is the chronological narrative of the work.
 
-Rules:
+**Discipline:** At meaningful checkpoints during a session (after shipping a fix, after a deploy, after a notable conversation), append to today's daily log. Don't wait until session end. If today's file doesn't exist yet, create it.
 
-- Update memory when meaningful changes happen
-- Do NOT store temporary info
+**Format:** Markdown with sections (## Bugs Fixed, ## Features Built, ## Decisions, ## What's Left). Be specific about file paths, line numbers, and what changed.
+
+### 2. Working Context (`working_context.md`)
+A single file that snapshots current focus -- what I'm working on RIGHT NOW. Updated continuously throughout each session. Read first at session start.
+
+**Discipline:** When focus shifts (new task, new bug, finished a thread), update this file. It should always reflect what's "loaded into my head" right now.
+
+### 3. Mistakes (`mistakes.md`)
+Append-only log of corrections. When Levi corrects something I did wrong, log it: what I did, what he said, what I learned, what to never do again.
+
+**Discipline:** Anytime Levi pushes back, says "no", or interrupts a tool call -- log it here before moving on. The point is to never make the same mistake twice.
+
+### 4. Persistent State (`memory/`)
+Slow-changing reference files. Read at session start. Update only when meaningful changes happen.
+
+- [[current_state]] -- live product status, users, MRR, recent shipped work
+- [[decisions_log]] -- architectural and business decisions with reasoning
+- [[next_actions]] -- top priorities for the next session
+- [[active_issues]] -- known bugs, security risks, ops issues
+- [[session_handoff]] -- continuity for next session
+
+### 5. Product/Dev Reference (`product/`, `dev/`)
+- [[product/roadmap]] -- phased product roadmap
+- [[product/live_business_context]] -- users, revenue, key customers
+- [[product/product_stack]] -- tech stack
+- [[dev/feature_backlog]] -- prioritized P0-P3 features
+
+### 6. Agent Shared (`agent_shared/`)
+Workspace for cross-agent coordination with Hermes (Levi's other AI operator).
+Drop files here when one agent does something the other should know about.
+
+---
+
+## SESSION FLOW
+
+**At session start:**
+1. Read [[working_context]] (top priority -- what was I doing?)
+2. Read today's [[daily_logs/YYYY-MM-DD]] if it exists, otherwise yesterday's
+3. Read [[current_state]], [[next_actions]], [[active_issues]]
+4. Skim [[mistakes]] for recent corrections to avoid repeating them
+5. Identify top priority and start
+
+**During session:**
+- Append to today's daily log at checkpoints
+- Update working_context when focus shifts
+- Log mistakes immediately when corrected
+
+**At session end (or when wrapping up):**
+- Update working_context with what's loaded for next session
+- Update next_actions with what's left
+- Make sure today's daily log is complete
+
+**Rules:**
+- Do NOT store temporary info in persistent memory files
 - Do NOT ask Levi to repeat things already known
+- Use [[wiki-links]] when referencing other vault files
 - Maintain continuity across sessions
-
-At session start:
-- read all memory files
-- read product/ files
-- read dev/feature_backlog.md
-- understand current state
-- identify top priorities
 
 ---
 

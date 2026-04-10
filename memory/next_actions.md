@@ -1,5 +1,8 @@
 # Next Actions
 
+> Top priorities for next session. Pulls from [[active_issues]] and [[dev/feature_backlog]]. Updated at session end.
+
+
 1. Verify deployment: test upload 3 clips, confirm 4th blocked, confirm regen logic works
 2. Address video-worker/worker.js hardcoded secrets (move to env vars)
 3. Fix metadata repetition for batches of similar clips

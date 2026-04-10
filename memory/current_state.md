@@ -1,4 +1,7 @@
-# Current State (Updated April 9, 2026)
+# Current State
+
+> Live snapshot of ClipMeta. Cross-references: [[working_context]] · [[next_actions]] · [[active_issues]] · [[product/roadmap]] · [[product/live_business_context]] · [[product/product_stack]] · [[dev/feature_backlog]]
+
 
 ## Project: ClipMeta
 - Live SaaS for stock footage creators

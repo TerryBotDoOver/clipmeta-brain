@@ -10,3 +10,8 @@ node_modules/
 dist/
 build/
 .credentials
+
+# Obsidian per-machine state (don't sync these, they cause conflicts)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
