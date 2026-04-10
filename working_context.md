@@ -36,6 +36,12 @@ Honor the new role: be a long-term thinking partner across all of Levi's life do
 - helton_1818 conversion outreach
 - Fix metadata repetition for similar clip batches
 
+## Tomorrow (2026-04-11)
+Levi has limited availability tomorrow:
+- Morning/midday: golfing with stepdad
+- Evening: dinner with girlfriend + friends
+- Light or no work session expected. Don't push hard work, just be ready if he checks in.
+
 ## Notes for Next-Me
 - The folder is still named ClipMeta_Brain but it's now a full life brain. Don't be confused.
 - ClipMeta-specific stuff lives in `business/clipmeta/`
