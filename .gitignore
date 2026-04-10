@@ -15,3 +15,8 @@ build/
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
 .obsidian/cache
+
+# Private folder — sensitive content stays local, never synced
+# (but the README is tracked so the folder exists on every machine)
+private/*
+!private/README.md

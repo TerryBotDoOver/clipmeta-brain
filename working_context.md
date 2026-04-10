@@ -1,41 +1,47 @@
 # Working Context
 
-What I'm focused on right now. Updated continuously throughout each session.
-This file is the "what's loaded into my head" snapshot. Read first at session start.
+> Snapshot of what's loaded in my head right now. Read first at session start.
+> Continuously updated throughout each session.
 
 ---
 
 ## Active Focus
-Setting up the Obsidian-style memory system based on Alex Finn's video.
+Just finished the big restructure: ClipMeta_Brain expanded from a project-only vault into a full life knowledge graph. Phase 1 (folder structure) and Phase 2 (CLAUDE.md rewrite) both done. Now we're in the "fill it with real content over time" stage.
 
 ## Current Goal
-Restructure ClipMeta_Brain so it works as a proper Obsidian vault with daily logs,
-mistakes tracking, working context, and cross-agent shared workspace.
+Honor the new role: be a long-term thinking partner across all of Levi's life domains. Push back when needed, never agree just to agree, never hallucinate. Capture what Levi tells me about his life into the right vault files as it comes up.
 
 ## Recently Completed (this session)
-- Fixed upload limit too late (block before R2 upload starts)
-- Fixed regen vs upload limit collision
-- Replaced clips_used_this_month derivation with dedicated regens_used_this_month counter
-- Fixed clips_used_this_month double-increment bug
-- Built promo reward system (50% off, 24h countdown, fireworks popup)
-- Built shared LimitReachedModal for upload + regen limits
-- Fixed referral tracking (?ref= param was being silently dropped)
-- Fixed referral qualify cron (was crashing on non-existent email/created_at columns)
-- Added bonus clips celebration animation
-- Fixed dashboard showing soft-deleted projects
-- Fixed signup with existing email UX
-- Built upload progress bar with glowing gradient + shimmer
+- Massive ClipMeta bug fix sweep (regen counter, upload limit, dashboard, signup UX, referrals, etc.)
+- Built welcome promo reward system (50% off, fireworks, 24h countdown)
+- Built shared limit-reached modal
+- Fixed referral tracking + qualify cron (was completely broken)
+- Set up Obsidian vault with daily logs / mistakes / working context
+- Set up SSH + Tailscale + key auth between Dell and Predator
+- Set up Obsidian Git plugin for cross-machine vault sync
+- Restructured vault into life domains (Phase 1)
+- Rewrote CLAUDE.md with expanded role + pushback rules (Phase 2)
+
+## What's Now Possible
+- I'm now expected to be a thinking partner across ALL of Levi's life, not just ClipMeta
+- New domain folders ready to fill: people, goals, health, learning, creative, finance, routines, journal
+- private/ folder gitignored for sensitive content
+- Each domain folder has a README.md explaining what goes in it
+- ClipMeta files all moved to business/clipmeta/
 
 ## Open Threads
-- [[active_issues|Active issues]] still has the video-worker hardcoded secrets risk
-- Referral system needs end-to-end test with a paid signup
-- Morning brief cron not yet built
+- Brain is mostly empty in the new domains -- waiting for Levi to start telling me about his life
+- Verify referral qualify cron works end-to-end (need CRON_SECRET or paid signup)
+- Build morning brief Discord cron
+- helton_1818 conversion outreach
+- Fix metadata repetition for similar clip batches
 
-## Blockers
-None right now.
-
-## Notes for Tomorrow-Me
-- Levi uses Vercel CLI deploys via stored token in [[reference_vercel_deploy]]
-- Supabase admin SQL via Management API in [[reference_supabase_admin]]
-- ClipMeta repo at C:\Users\levic\.openclaw\workspace\clipmeta\clipmeta
-- Stripe coupon `welcome_reward_50` exists for the welcome offer
+## Notes for Next-Me
+- The folder is still named ClipMeta_Brain but it's now a full life brain. Don't be confused.
+- ClipMeta-specific stuff lives in `business/clipmeta/`
+- Read `CLAUDE.md` carefully — the role is meaningfully different from before
+- Levi explicitly asked for honest pushback. NEVER agree just to agree. Never hallucinate. Never sycophantic.
+- Levi can SSH from Predator to Dell: `ssh -p 2222 levic@clipmeta-dell` (see [[reference_remote_access]] in persistent memory)
+- Vault auto-syncs Dell ↔ Predator via Obsidian Git plugin
+- Stripe coupon `welcome_reward_50` is live for the welcome offer
+- Vercel + Supabase access tokens are in persistent memory (`~/.claude/projects/...`)
