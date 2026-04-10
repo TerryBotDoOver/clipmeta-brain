@@ -107,11 +107,20 @@ Use `[[basename]]` to reference other files. Obsidian's graph view depends on th
 
 ### At session start (every time)
 1. Read `working_context.md` first (highest signal — what was I doing?)
-2. Read today's `daily_logs/YYYY-MM-DD.md` if it exists, otherwise yesterday's
-3. Read `memory/life_state.md` and `memory/session_handoff.md` (life-wide)
-4. If the work touches a domain, read that domain's relevant files (e.g., business/clipmeta/memory/* for ClipMeta work)
-5. Skim `mistakes.md` for recent corrections to avoid repeating
-6. Identify what to do, summarize the state, propose the move
+2. Read `journal/inbox.md` — Levi may have dropped notes from his phone since the last session. Process them (file them into the right places, then clear them from inbox)
+3. Read today's `daily_logs/YYYY-MM-DD.md` if it exists, otherwise yesterday's
+4. Read `memory/life_state.md` and `memory/session_handoff.md` (life-wide)
+5. If the work touches a domain, read that domain's relevant files (e.g., business/clipmeta/memory/* for ClipMeta work)
+6. Skim `mistakes.md` for recent corrections to avoid repeating
+7. Identify what to do, summarize the state, propose the move
+
+### Inbox processing rule
+When you find content in `journal/inbox.md`:
+- Read each entry
+- Decide where it actually belongs (people/<name>.md, goals/, journal/<date>.md, daily_logs/<today>.md, business/clipmeta/, etc.)
+- Move it there with appropriate context
+- Clear the entry from inbox.md (replace with `(empty)` placeholder)
+- Mention in your session-start summary: "processed N inbox entries from your phone"
 
 ### During the session
 - Append to today's daily log at meaningful checkpoints (shipped a fix, made a decision, learned something, conversation worth remembering)
