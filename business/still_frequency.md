@@ -152,10 +152,9 @@ Python pipeline (newer / more developed). Files directly in home dir:
 - ✅ STILL_FREQUENCY_README declares: "Pipeline ready for handoff to production"
 - ⚠️ **First upload FAILED on April 4-5** — YouTube removed it because the account was unverified (15-minute upload cap for unverified accounts; the video was 10 hours)
 - ✅ Levi verified the YouTube account on April 5 → upload cap raised to 12 hours
-- ⚠️ **Re-upload was in progress via Hermes on April 5**, status not confirmed in any later note
-- ❓ Whether the re-upload succeeded — not in any Hermes log after 2026-04-06
-- ❌ **No published video on the channel as of last known data point (2026-04-06)**
-- ❌ **No mention in Hermes session logs since 2026-04-06** — the project went quiet right after the verification fix
+- ⚠️ **Hermes ran low on tokens before completing the re-upload.** Levi confirmed 2026-04-11 that **he had to do the re-upload himself** because Hermes was running out.
+- ❓ Whether the manual upload Levi did is now live on the channel, and whether it has any views/subs — not confirmed
+- ❌ **No mention in Hermes session logs since 2026-04-06** — the project went quiet right after the verification fix, partly because Hermes had no tokens left to push it forward
 
 ### Why this matters
 The pipeline is genuinely DONE. The 48GB master file genuinely exists. The only thing between Levi and his first published Still Frequency video is **finding out whether Hermes's re-upload after account verification actually completed.** This is a 30-second check, not a project to restart.
