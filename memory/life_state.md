@@ -7,6 +7,10 @@
 ## Who Levi Is
 Founder of ClipMeta (live SaaS, ~55 users, ~$46.50 MRR). Films drone footage for stock and runs the metadata SaaS that came out of his own creative practice. Solo operator. Cost-conscious. Prefers execution over discussion. Builds with AI agents (me + Hermes).
 
+- **FAA Part 107 certified drone pilot** (commercial drone operations license)
+- **Lives in:** North Port, Florida
+- **Stepdad:** [[stepdad|Pete]] (golfing partner)
+
 ## Current Phase of Life
 *To be filled in over time as Levi shares context.*
 
