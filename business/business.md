@@ -16,8 +16,8 @@ Levi's videography business: drone, weddings, real estate, commercial. The creat
 ### [[resale_flipping|Resale / Auction Flipping]]
 Side hustle. Buys at auction, flips online or locally.
 
-### [[true_fence_florida|True Fence Florida]] — WordPress site for a fence company
-Active engagement for True Fence LLC in North Port, FL. Levi's [[keilly|girlfriend]]'s family business (or possibly her own — see open question in the file). Terry handles the website work, Levi owns the client relationship.
+### [[true_fence_florida|True Fence Florida]] — Keilly's fence company
+[[keilly|Keilly]] (Levi's girlfriend) owns this. Levi helps her with the WordPress website. North Port, FL. Now also serves as the **Phase 0 validation customer for [[site_rules|SiteRules]]**.
 
 ### [[freelance_web_design|Freelance Web Design]] — Side service
 The general "Levi takes on small WordPress jobs from his network" service. True Fence is the first known client. Pricing: $50-150 simple edits, $150-400 medium changes, $400-1,000+ major redesigns.
@@ -27,6 +27,12 @@ Started ~2026-04-03. Fully automated AI pipeline: Suno music + FFmpeg Ken Burns 
 
 ### [[served_cold|Served Cold]] — Faceless animated YouTube channel (betrayal/revenge narratives)
 Started 2026-03-24. Fully AI-operated: Claude scripts + Flux images + Kling hero shots + ElevenLabs voice. Brand fully designed. Discord channels created. **Status uncertain** — Levi needed to provide YouTube + API credentials.
+
+### [[site_rules|SiteRules]] — Vertical SaaS for fence contractors (Hermes-built)
+Web app where fence contractors type an address and get rules, permits, zoning, AI Q&A. Started 2026-04-07 with [[agents|Hermes]]. Charlotte County, FL only at first. Phase 0 validation runs through [[true_fence_florida|Keilly's True Fence company]]. Code exists in `/home/lb12340/SiteRules/app/` (see [[wsl_hermes_workspace]]). Pricing: Free (3 lookups/mo), Pro $29/mo, Team $69/mo.
+
+### [[beekeeper_hive_manager|Beekeeper Hive Manager]] — SaaS for beekeepers (early stage)
+Discord category set up under "BEEKEEPER APP" in [[discord_server|Throw It In Reverse]]. Hermes was doing market research and competitor analysis. **No code on disk yet.** No mentions in Hermes sessions after 2026-04-05 — likely stalled at the research phase.
 
 ## Tools that support the businesses (not standalone businesses)
 

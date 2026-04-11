@@ -23,14 +23,18 @@
   - [[freelance_web_design|Freelance Web Design]] -- side service, take small WordPress jobs
   - [[still_frequency|Still Frequency]] -- faceless YouTube sleep music channel (paused?)
   - [[served_cold|Served Cold]] -- faceless animated YouTube channel (paused?)
+  - [[site_rules|SiteRules]] -- vertical SaaS for fence contractors (Hermes-built, in active dev, Keilly is validation customer)
+  - [[beekeeper_hive_manager|Beekeeper Hive Manager]] -- SaaS for beekeepers (early, Discord-only, likely stalled)
+  - [[listing_meta|ListingMeta]] -- RE photographer metadata (backburner)
   - [[resale_flipping|Resale]] -- auction flipping side hustle
   - [[idea|Drone golf courses idea]] -- raw concept, captured 2026-04-11
-  - [[listing_meta|ListingMeta]] -- RE photographer metadata (backburner)
   - [[video_engine|Video Engine]] -- custom video generation tool (supports the others)
 
 ## How my AI workforce is organized
 - See [[agents]] -- the multi-agent system (Terry, Hermes, Codex, Flash, Local Ollama, plus Claude Code)
 - See [[dell_topology]] -- which machine runs what
+- See [[wsl_hermes_workspace]] -- the WSL workspace where Hermes lives + SiteRules + Still Frequency code
+- See [[discord_server|Discord server]] -- "Throw It In Reverse" with categories for each project
 - See [[cron_jobs]] -- the 31 scheduled tasks running on my behalf
 - See [[lessons_learned]] -- distilled wisdom from a month of Terry running things
 
