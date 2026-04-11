@@ -1,7 +1,7 @@
 # Life State
 
 > The high-level snapshot of what's going on in Levi's life right now.
-> Cross-references: [[working_context]] · [[goals/README|goals]] · [[business/clipmeta/memory/current_state|ClipMeta state]]
+> Cross-references: [[working_context]] · [[business|Business hub]] · [[family|Family hub]] · [[friends|Friends hub]] · [[clipmeta|ClipMeta hub]]
 > Updated when meaningful life changes happen, not daily.
 
 ## Who Levi Is
@@ -34,10 +34,10 @@ Founder of ClipMeta (live SaaS, ~55 users, ~$46.50 MRR). Films drone footage for
 *To be filled in over time as Levi shares context.*
 
 ## Active Domains
-- **Business:** ClipMeta. See [[business/clipmeta/memory/current_state|ClipMeta state]] for the live snapshot.
+- **Business:** See [[business|Business hub]] for all four ventures: [[clipmeta|ClipMeta]], [[eternal_frame_productions|Eternal Frame Productions]], [[resale_flipping|Resale]], [[idea|Drone golf courses idea]].
+- **People:** See [[family|Family hub]] and [[friends|Friends hub]].
 - **Creative:** Drone footage. See [[creative/README|creative folder]].
 - **Health:** *To be defined*
-- **Relationships:** *To be defined*
 - **Finance:** *To be defined*
 - **Learning:** *To be defined*
 
