@@ -18,9 +18,21 @@
 ## What I do
 - See [[business]] -- top-level business hub
   - [[clipmeta|ClipMeta]] -- AI metadata SaaS for stock footage creators (live, paying users)
-  - [[eternal_frame_productions|Eternal Frame Productions]] -- videography business (drone, weddings, real estate, commercial)
+  - [[eternal_frame_productions|Eternal Frame Productions LLC]] -- videography business (drone, weddings, real estate, commercial)
+  - [[true_fence_florida|True Fence Florida]] -- WordPress site for fence company in SWFL
+  - [[freelance_web_design|Freelance Web Design]] -- side service, take small WordPress jobs
+  - [[still_frequency|Still Frequency]] -- faceless YouTube sleep music channel (paused?)
+  - [[served_cold|Served Cold]] -- faceless animated YouTube channel (paused?)
   - [[resale_flipping|Resale]] -- auction flipping side hustle
   - [[idea|Drone golf courses idea]] -- raw concept, captured 2026-04-11
+  - [[listing_meta|ListingMeta]] -- RE photographer metadata (backburner)
+  - [[video_engine|Video Engine]] -- custom video generation tool (supports the others)
+
+## How my AI workforce is organized
+- See [[agents]] -- the multi-agent system (Terry, Hermes, Codex, Flash, Local Ollama, plus Claude Code)
+- See [[dell_topology]] -- which machine runs what
+- See [[cron_jobs]] -- the 31 scheduled tasks running on my behalf
+- See [[lessons_learned]] -- distilled wisdom from a month of Terry running things
 
 ## Memory & continuity
 - [[life_state]] -- the snapshot

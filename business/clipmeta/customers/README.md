@@ -4,6 +4,13 @@
 > One file per customer, named by handle/first-name.
 > Cross-link from [[current_state]] and [[live_business_context]].
 
+## Current customer files
+- [[helton|Helton]] — Studio trial converting ~5h from now (highest revenue)
+- [[sakis|Sakis Palskg]] — Pro, the highest-value feedback source
+- [[anitek|Anitek]] — Pro trial as of 3/24, status unknown
+- [[andrew|Andrew (Airoma)]] — Starter trial as of 3/24, status unknown
+- See also: [[current_state]] for the live MRR + user counts
+
 ## What goes in each file
 - Identity (name, email, country, language)
 - Plan + subscription state (trial / active / canceled)

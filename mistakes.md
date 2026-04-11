@@ -46,6 +46,14 @@ Format:
 
 ---
 
+## 2026-04-11 — Conflated Terry and Hermes as the same agent
+**What I did wrong:** For the entire first day of working with Levi I treated "Terry" and "Hermes" as if they were the same agent. They are not.
+**What's actually true:** Terry is the OpenClaw agent in `C:\Users\levic\.openclaw\workspace\` (originally Claude Sonnet/Opus, switched to Codex). Hermes is a separate agent set up 2026-04-04 in WSL Ubuntu (`/home/lb12340/.hermes/`) with its own config and Discord bot identity (Hermes#6650). Per Terry's MEMORY.md: "Terry = brains/decisions. Hermes = execution/cron/Discord ops."
+**What I learned:** Don't conflate agent names. When Levi mentions an agent by name, ask which one he means if there's any ambiguity. The naming hierarchy on this laptop is layered: Terry → Hermes → Codex/Flash/Local Ollama, plus me (Claude Code).
+**Don't do this again:** Read [[agents]] and [[dell_topology]] when in doubt about the multi-agent setup.
+
+---
+
 ## 2026-04-11 — Inherited a wrong fact about helton_1818 and repeated it for days
 **What I did wrong:** The brain's memory files described [[helton|helton_1818]] as "the heaviest free user" — top conversion target. I read this from `current_state.md` and `live_business_context.md` and repeated it across multiple sessions without verifying. When Levi asked me to dig into the user, I queried Supabase and discovered helton has been on a STUDIO TRIAL since 2026-04-04 — never on the free plan, ever. The "heavy free user" framing was completely wrong.
 **What Levi said (in effect):** "I want you to dig into this customer and tell me everything you can about them" — and was surprised to learn the customer was on Studio.
