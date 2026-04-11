@@ -1,0 +1,107 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": true,
+  "showAttachments": true,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "file:levi",
+      "color": {
+        "a": 1,
+        "rgb": 16766720
+      }
+    },
+    {
+      "query": "file:business",
+      "color": {
+        "a": 1,
+        "rgb": 9647082
+      }
+    },
+    {
+      "query": "path:business/clipmeta",
+      "color": {
+        "a": 1,
+        "rgb": 8138989
+      }
+    },
+    {
+      "query": "path:business/drone_golf_courses",
+      "color": {
+        "a": 1,
+        "rgb": 16348950
+      }
+    },
+    {
+      "query": "file:eternal_frame_productions OR file:resale_flipping",
+      "color": {
+        "a": 1,
+        "rgb": 12745472
+      }
+    },
+    {
+      "query": "file:family",
+      "color": {
+        "a": 1,
+        "rgb": 2278750
+      }
+    },
+    {
+      "query": "file:friends",
+      "color": {
+        "a": 1,
+        "rgb": 444372
+      }
+    },
+    {
+      "query": "path:people",
+      "color": {
+        "a": 1,
+        "rgb": 4445820
+      }
+    },
+    {
+      "query": "path:daily_logs",
+      "color": {
+        "a": 1,
+        "rgb": 3899638
+      }
+    },
+    {
+      "query": "path:journal",
+      "color": {
+        "a": 1,
+        "rgb": 8421504
+      }
+    },
+    {
+      "query": "path:memory",
+      "color": {
+        "a": 1,
+        "rgb": 15381256
+      }
+    },
+    {
+      "query": "file:mistakes",
+      "color": {
+        "a": 1,
+        "rgb": 15680580
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": false,
+  "textFadeMultiplier": -2.7,
+  "nodeSizeMultiplier": 2.06101871101871,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": true,
+  "centerStrength": 0.4,
+  "repelStrength": 19.5634095634096,
+  "linkStrength": 0.545738045738046,
+  "linkDistance": 100,
+  "scale": 0.45050811767578025,
+  "close": true
+}

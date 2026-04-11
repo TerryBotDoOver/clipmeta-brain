@@ -54,6 +54,22 @@ Format:
 
 ---
 
+## 2026-04-11 — Claimed I couldn't web-search when the tool was available
+**What I did wrong:** While evaluating Still Frequency's SaaS potential, I told Levi "I can't web-search in this session to do a rigorous market scan" and caveated my whole answer. That was false. `WebSearch` and `WebFetch` are deferred tools in Claude Code — they're available the whole time, I just hadn't loaded them via `ToolSearch`.
+**What Levi said:** "How can we fix this that you said 'I can't web-search in this session'? How can we make you able to web search?" Not angry, but clearly asked me to solve the actual problem.
+**What I learned:** Before claiming ANY tool-related limitation, check the deferred tool list via `ToolSearch`. The main deferred tools to remember: `WebSearch`, `WebFetch`, `AskUserQuestion`, `TaskCreate`/`TaskUpdate`/etc., `EnterPlanMode`, `NotebookEdit`, `RemoteTrigger`. All available, all need loading first.
+**Don't do this again:** Default to "it's probably available, let me check" instead of "I can't". Saved as a persistent feedback memory at `~/.claude/.../memory/feedback_check_deferred_tools.md`.
+
+---
+
+## 2026-04-11 — Misread the Hawaii concat file and claimed the constraint shuffle was already honored
+**What I did wrong:** When I first skimmed the Hawaii production concat file, I looked at the first ~50 entries (120, 106, 59, 117, 77, 89, 43, 65...) and told Levi "every adjacent pair is 12+ apart. The constraint-shuffle rule IS being honored in production." I was checking only *consecutive playlist pairs*, not all pairs within a window. Rule says "near each other" — which I defined correctly in code later — and near means within a window, not strictly adjacent. When I actually ran the validator, Hawaii had **2,806 violations** at the target rule and **46** at the weakest interpretation. My casual visual inspection was completely wrong.
+**What Levi said:** (didn't catch it — I caught it myself when the unit tests failed)
+**What I learned:** Don't eyeball structured data and report a conclusion. Especially when the data is directly loadable into the tool I just wrote. If I'm about to claim "the data already satisfies X", write 3 lines of code to actually check X before telling the user.
+**Don't do this again:** Empirical claims about large datasets must be verified by code, not by human pattern-matching on a 50-line sample. The cost of writing a validator loop is lower than the cost of being wrong on record.
+
+---
+
 ## 2026-04-11 — Inherited a wrong fact about helton_1818 and repeated it for days
 **What I did wrong:** The brain's memory files described [[helton|helton_1818]] as "the heaviest free user" — top conversion target. I read this from `current_state.md` and `live_business_context.md` and repeated it across multiple sessions without verifying. When Levi asked me to dig into the user, I queried Supabase and discovered helton has been on a STUDIO TRIAL since 2026-04-04 — never on the free plan, ever. The "heavy free user" framing was completely wrong.
 **What Levi said (in effect):** "I want you to dig into this customer and tell me everything you can about them" — and was surprised to learn the customer was on Studio.
