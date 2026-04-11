@@ -8,9 +8,10 @@
 - AI-powered batch metadata generation, review, and CSV export
 - Stage: Post-launch, revenue-generating, growth phase
 - Users: ~55 total, 4 paying
-- MRR: ~$46.50 (likely ~$95.50 in ~5 hours if helton_1818 auto-converts from Studio trial as expected)
+- MRR: ~$46.50 (likely ~$95.50 in ~5 hours if [[helton]] auto-converts from Studio trial as expected)
 - Domain: clipmeta.app
 - **Studio regen cap added 2026-04-11:** 500/mo (was effectively unlimited via 999999 sentinel). Removes unbounded loss risk.
+- **Top conversion event tonight:** [[helton|Helton A da Silva]] — Studio trial converts at 2026-04-11 08:01 UTC. ~90% predicted conversion. See [[helton]] for full profile.
 
 ## Codebase
 - Path: C:\Users\levic\.openclaw\workspace\clipmeta\clipmeta

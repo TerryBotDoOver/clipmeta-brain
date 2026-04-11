@@ -6,48 +6,42 @@
 ---
 
 ## Active Focus
-Levi just got back from golfing with Pete and Dennis. Processed his phone inbox: Cafe 776 recommendation filed under places_to_visit, drone-golf-course business idea filed in business/drone_golf_courses/, learned he's a Part 107 pilot living in North Port FL. Now waiting to see what he wants to do next — he has dinner plans tonight so the window may be short.
+Late-night session wrapping up. Big sweep across Mission Control cleanup, Studio plan economics, [[helton|helton_1818]] deep dive, Studio regen cap deployment. Brain graph getting fuller — added customer profiles + a real correction to mistakes.md.
 
-## Current Goal
-Honor the new role: be a long-term thinking partner across all of Levi's life domains. Push back when needed, never agree just to agree, never hallucinate. Capture what Levi tells me about his life into the right vault files as it comes up.
+## Time-sensitive — read first next session
+**[[helton|Helton A da Silva]] trial converts at 2026-04-11 08:01 UTC.**
+First thing next session: query Stripe + Supabase to confirm whether the conversion happened.
+- If YES: send him a "thanks for joining" email that acknowledges his volume specifically. Update MRR. Celebrate.
+- If NO: figure out why and learn from it.
 
 ## Recently Completed (this session)
-- Massive ClipMeta bug fix sweep (regen counter, upload limit, dashboard, signup UX, referrals, etc.)
-- Built welcome promo reward system (50% off, fireworks, 24h countdown)
-- Built shared limit-reached modal
-- Fixed referral tracking + qualify cron (was completely broken)
-- Set up Obsidian vault with daily logs / mistakes / working context
-- Set up SSH + Tailscale + key auth between Dell and Predator
-- Set up Obsidian Git plugin for cross-machine vault sync
-- Restructured vault into life domains (Phase 1)
-- Rewrote CLAUDE.md with expanded role + pushback rules (Phase 2)
-
-## What's Now Possible
-- I'm now expected to be a thinking partner across ALL of Levi's life, not just ClipMeta
-- New domain folders ready to fill: people, goals, health, learning, creative, finance, routines, journal
-- private/ folder gitignored for sensitive content
-- Each domain folder has a README.md explaining what goes in it
-- ClipMeta files all moved to business/clipmeta/
+- Mission Control dashboard secrets cleanup (8 secrets including Stripe live key moved to .env)
+- MISSION_CONTROL.md sync (was 28 days stale)
+- terry-status.json + task-log.json updated (16 new task entries for our recent work)
+- New CLAUDE.md section: Mission Control dashboard sync discipline
+- Helton deep dive — created [[helton|customer profile]] with full identity, usage, prediction
+- Discovered helton was NOT on the free plan — Studio trial since Apr 4. Logged in [[mistakes]].
+- Studio plan unit economics analysis (per-clip $0.02, Studio at cap = $7 profit, worst case = -$192 loss)
+- Studio regen cap deployed (500/mo) — 6 files updated, deployed to production
+- Two new persistent feedback rules saved (descriptive tool descriptions + plain-language approval explanations)
+- Daily logs + decisions log + active issues + next actions all updated
 
 ## Open Threads
-- Brain is mostly empty in the new domains -- waiting for Levi to start telling me about his life
-- Verify referral qualify cron works end-to-end (need CRON_SECRET or paid signup)
-- Build morning brief Discord cron
-- helton_1818 conversion outreach
-- Fix metadata repetition for similar clip batches
-
-## Tomorrow (2026-04-11)
-Levi has limited availability tomorrow:
-- Morning/midday: golfing with stepdad
-- Evening: dinner with girlfriend + friends
-- Light or no work session expected. Don't push hard work, just be ready if he checks in.
+- helton conversion check (above) — 5 hours from now
+- Stripe key rotation as follow-up to the dashboard cleanup
+- Video-worker hardcoded secrets still need cleanup
+- Metadata repetition fix
+- Morning brief Discord cron (architecture designed, not built)
+- helton onboarding (he doesn't seem to know about regenerations)
 
 ## Notes for Next-Me
-- The folder is still named ClipMeta_Brain but it's now a full life brain. Don't be confused.
-- ClipMeta-specific stuff lives in `business/clipmeta/`
-- Read `CLAUDE.md` carefully — the role is meaningfully different from before
-- Levi explicitly asked for honest pushback. NEVER agree just to agree. Never hallucinate. Never sycophantic.
-- Levi can SSH from Predator to Dell: `ssh -p 2222 levic@clipmeta-dell` (see [[reference_remote_access]] in persistent memory)
-- Vault auto-syncs Dell ↔ Predator via Obsidian Git plugin
-- Stripe coupon `welcome_reward_50` is live for the welcome offer
-- Vercel + Supabase access tokens are in persistent memory (`~/.claude/projects/...`)
+- The brain is now a full life knowledge graph with 14 people files, customer profiles, business folder structure, daily logs, working context, mistakes log
+- Levi can SSH into the Dell from the Predator: `ssh -p 2222 levic@clipmeta-dell` (see persistent memory `reference_remote_access`)
+- Vault auto-syncs Dell ↔ Predator via Obsidian Git plugin (5min pull, 10min push)
+- Vercel deploy: `npx vercel --prod --token vcp_... --yes` from ClipMeta repo dir (token in persistent memory)
+- Supabase admin: Management API curl with PAT (see persistent memory `reference_supabase_admin`)
+- Stripe live key is in `dashboard/.env` AND in the ClipMeta repo's Vercel env vars
+- Mission Control dashboard at http://localhost:3131 (login required, password is `Ja7bFeofjrME1lSL` in `.env`)
+- Two persistent feedback rules now active: descriptive tool descriptions + plain-language approval explanations
+- Levi explicitly wants pushback, never agree-to-agree, never hallucinate
+- Helton's full real name is Helton A da Silva, lives in Ireland, probably Brazilian/Portuguese

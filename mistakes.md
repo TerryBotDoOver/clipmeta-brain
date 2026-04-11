@@ -43,3 +43,15 @@ Format:
 **What Levi said:** Eventually corrected me by pointing to the real local repo path.
 **What I learned:** For a live product, ALWAYS get the codebase path before making code changes.
 **Don't do this again:** Confirm codebase location and read existing code before writing new code on a live product.
+
+---
+
+## 2026-04-11 — Inherited a wrong fact about helton_1818 and repeated it for days
+**What I did wrong:** The brain's memory files described [[helton|helton_1818]] as "the heaviest free user" — top conversion target. I read this from `current_state.md` and `live_business_context.md` and repeated it across multiple sessions without verifying. When Levi asked me to dig into the user, I queried Supabase and discovered helton has been on a STUDIO TRIAL since 2026-04-04 — never on the free plan, ever. The "heavy free user" framing was completely wrong.
+**What Levi said (in effect):** "I want you to dig into this customer and tell me everything you can about them" — and was surprised to learn the customer was on Studio.
+**What I learned:** Inherited brain context can be stale or wrong. Treating it as ground truth is the same kind of error I made in [[mistakes|"Treated ClipMeta as a greenfield project"]] — assuming instead of verifying.
+**Don't do this again:**
+- Before I act on any fact about a person/customer/system that I "remember" from the brain, verify it against the actual source of truth (database, API, code) at least once when it becomes load-bearing.
+- When updating customer notes, always cross-check `plan` and `stripe_subscription_status` from the live profiles table.
+- Don't propagate user labels (free/paid/trial/heavy) without freshness checks.
+- The brain is a memory aid, not a source of truth for live data.
