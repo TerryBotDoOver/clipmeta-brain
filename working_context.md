@@ -2,6 +2,7 @@
 
 > Snapshot of what's loaded in my head right now. Read first at session start.
 > Continuously updated throughout each session.
+> Part of [[levi]]'s graph -- this is the live "what's happening" view of his focus.
 
 ---
 

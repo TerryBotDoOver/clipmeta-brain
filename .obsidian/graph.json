@@ -6,17 +6,109 @@
   "hideUnresolved": false,
   "showOrphans": true,
   "collapse-color-groups": false,
-  "colorGroups": [],
-  "collapse-display": true,
+  "colorGroups": [
+    {
+      "query": "file:levi",
+      "color": {
+        "a": 1,
+        "rgb": 16766720
+      }
+    },
+    {
+      "query": "file:business",
+      "color": {
+        "a": 1,
+        "rgb": 9647082
+      }
+    },
+    {
+      "query": "path:business/clipmeta",
+      "color": {
+        "a": 1,
+        "rgb": 8138989
+      }
+    },
+    {
+      "query": "path:business/drone_golf_courses",
+      "color": {
+        "a": 1,
+        "rgb": 16348950
+      }
+    },
+    {
+      "query": "file:eternal_frame_productions OR file:resale_flipping",
+      "color": {
+        "a": 1,
+        "rgb": 12745472
+      }
+    },
+    {
+      "query": "file:family",
+      "color": {
+        "a": 1,
+        "rgb": 2278750
+      }
+    },
+    {
+      "query": "file:friends",
+      "color": {
+        "a": 1,
+        "rgb": 444372
+      }
+    },
+    {
+      "query": "path:people",
+      "color": {
+        "a": 1,
+        "rgb": 4445820
+      }
+    },
+    {
+      "query": "path:daily_logs",
+      "color": {
+        "a": 1,
+        "rgb": 3899638
+      }
+    },
+    {
+      "query": "path:journal",
+      "color": {
+        "a": 1,
+        "rgb": 8421504
+      }
+    },
+    {
+      "query": "path:memory",
+      "color": {
+        "a": 1,
+        "rgb": 15381256
+      }
+    },
+    {
+      "query": "file:mistakes",
+      "color": {
+        "a": 1,
+        "rgb": 15680580
+      }
+    },
+    {
+      "query": "file:working_context",
+      "color": {
+        "a": 1,
+        "rgb": 16777215
+      }
+    }
+  ],
+  "collapse-display": false,
   "showArrow": false,
-  "textFadeMultiplier": -3,
-  "nodeSizeMultiplier": 1.2460498960499,
-  "lineSizeMultiplier": 0.818191268191268,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 3.5,
+  "lineSizeMultiplier": 1.0,
   "collapse-forces": false,
-  "centerStrength": 0.217255717255717,
-  "repelStrength": 11.7463617463617,
-  "linkStrength": 0,
-  "linkDistance": 30,
-  "scale": 0.1634837056722045,
+  "centerStrength": 0.4,
+  "repelStrength": 18,
+  "linkStrength": 1,
+  "linkDistance": 100,
+  "scale": 0.4,
   "close": true
 }

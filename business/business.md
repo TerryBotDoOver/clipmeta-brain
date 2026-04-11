@@ -1,6 +1,7 @@
 # Business
 
 > Top-level hub for everything Levi makes money from (or plans to). All four ventures live here.
+> Part of [[levi]]'s graph.
 
 ## Active businesses
 

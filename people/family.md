@@ -1,6 +1,6 @@
 # Family
 
-> Hub for Levi's family. Two parental branches because of remarriages, 4 brothers across both sides, plus the family dog.
+> Hub for [[levi|Levi]]'s family. Two parental branches because of remarriages, 4 brothers across both sides, plus the family dog.
 > Links to every person file in the family graph.
 
 ## Levi's parents

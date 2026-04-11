@@ -2,6 +2,7 @@
 
 > Central hub for ClipMeta. Every ClipMeta-related note connects here so the graph view actually shows the structure.
 > Open this file when you want a one-click index of everything ClipMeta.
+> Part of [[levi]]'s graph, sits under [[business]].
 
 ## What it is
 ClipMeta is Levi's live SaaS for stock footage creators. Upload clips → AI generates metadata → review/edit → export CSV for stock platforms (Blackbox primary, Shutterstock, Adobe, Pond5).

@@ -1,7 +1,7 @@
 # Life State
 
-> The high-level snapshot of what's going on in Levi's life right now.
-> Cross-references: [[working_context]] · [[business|Business hub]] · [[family|Family hub]] · [[friends|Friends hub]] · [[clipmeta|ClipMeta hub]]
+> The high-level snapshot of what's going on in [[levi|Levi]]'s life right now.
+> Cross-references: [[levi|Levi]] · [[working_context]] · [[business|Business hub]] · [[family|Family hub]] · [[friends|Friends hub]] · [[clipmeta|ClipMeta hub]]
 > Updated when meaningful life changes happen, not daily.
 
 ## Who Levi Is

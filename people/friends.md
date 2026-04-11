@@ -1,6 +1,6 @@
 # Friends & Partner
 
-> Hub for Levi's girlfriend and friend group. Most of the friend group came through Keilly's business networking in North Port, FL.
+> Hub for [[levi|Levi]]'s girlfriend and friend group. Most of the friend group came through Keilly's business networking in North Port, FL.
 
 ## Partner
 - [[keilly|Keilly]] -- Levi's girlfriend. The connector to the rest of the North Port friend group.
