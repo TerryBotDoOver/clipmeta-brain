@@ -54,6 +54,18 @@ Format:
 
 ---
 
+## 2026-04-11 — Hand-waved a real $9.50 gap in the Finance numbers as "started mid-cycle"
+**What I did wrong:** The first Finance snapshot showed MRR run-rate $114 but actual gross 30d of $104.50. A $9.50 gap. I told Levi "next month's numbers will catch up to the run-rate" and attributed it to "subscriptions started mid-cycle". I didn't bother checking whether that was actually true — I invented a plausible-sounding explanation that happens to be the first thing I'd expect for that kind of gap. In reality, $9.50 is exactly 50% of a $19 Pro subscription, and Haydn Hopewell had a `FOUNDING50` coupon (50% off, 3 months repeating) that my collector was missing entirely because I was reading `subscription.plan.amount` instead of the `discounts` array.
+**What Levi said:** "I think your wrong. one person is using a promo for 50% off the first 3 months."
+**What I learned:** When a number doesn't match my mental model, the default explanation should NOT be "probably a timing thing". The default should be "I don't know yet — let me look". The data was 2 Stripe API calls away. Hand-waving away a discrepancy is the same bug as guessing costs: both are pretending I know the answer when the answer is trivially checkable.
+**Don't do this again:**
+- When the numbers I'm reporting don't match the numbers I can cross-validate against (in this case, MRR vs gross 30d), investigate the gap before shipping the report. A mismatch is a signal, not noise.
+- For Stripe specifically: read `subscription.discounts` (plural array), NOT `subscription.discount` (deprecated singular). Use `expand[]=data.discounts` on the list endpoint.
+- Customer-applied coupons, promotion codes, and one-time credits are all tracked separately from the base plan amount. Any "what does this customer actually pay?" calculation must walk the discounts, not just read `plan.amount`.
+- Write the discount-reconciliation check as part of the collector's validation, not as a post-hoc fix.
+
+---
+
 ## 2026-04-11 — Guessed infrastructure costs for the Finance page instead of asking or defaulting to $0
 **What I did wrong:** When building the new ClipMeta Finance page in Mission Control, I needed a `finance-config.json` with monthly infrastructure subscription costs. I don't actually know what Levi pays for, so I filled in "plausible defaults": Vercel Pro $20, Supabase Pro $25, Cloudflare R2 $3, Resend $20, domain $1. That added $69/mo of **fake cost** to the dashboard, which dragged the reported net profit from $90.92 down to $21.92 and the margin from 87% down to 21%. The numbers on the screen looked real (the Stripe and OpenAI sides WERE real) so the fake infra numbers were indistinguishable from truth unless Levi knew to audit them.
 **What Levi said:** "I don't have any of these yet. They are all on free plan. Why did you put them in? Did you guess?"
