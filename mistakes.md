@@ -54,6 +54,18 @@ Format:
 
 ---
 
+## 2026-04-11 — Guessed infrastructure costs for the Finance page instead of asking or defaulting to $0
+**What I did wrong:** When building the new ClipMeta Finance page in Mission Control, I needed a `finance-config.json` with monthly infrastructure subscription costs. I don't actually know what Levi pays for, so I filled in "plausible defaults": Vercel Pro $20, Supabase Pro $25, Cloudflare R2 $3, Resend $20, domain $1. That added $69/mo of **fake cost** to the dashboard, which dragged the reported net profit from $90.92 down to $21.92 and the margin from 87% down to 21%. The numbers on the screen looked real (the Stripe and OpenAI sides WERE real) so the fake infra numbers were indistinguishable from truth unless Levi knew to audit them.
+**What Levi said:** "I don't have any of these yet. They are all on free plan. Why did you put them in? Did you guess?"
+**What I learned:** When I'm building a financial reporting tool, the entire point is to report REAL numbers. Mixing in even one fake default compromises the whole thing — worse than having no data, because the user trusts the display. The safe default for anything I don't actually know is **$0 with a clear note in the config** ("FREE tier. Update when you upgrade."). The user can add real numbers as bills come in.
+**Don't do this again:**
+- Financial reporting code NEVER gets guessed defaults. Always $0 or explicitly labeled "placeholder — verify before trusting".
+- The same rule applies to any "cost side" in a profit calculation, ANY customer count, ANY revenue figure.
+- "Plausible default that looks like it could be real" is worse than "0 with a note" because the user can't distinguish it from truth.
+- Before filling in a number I don't know for sure, ASK or leave it at 0. Never split the difference.
+
+---
+
 ## 2026-04-11 — Claimed I couldn't web-search when the tool was available
 **What I did wrong:** While evaluating Still Frequency's SaaS potential, I told Levi "I can't web-search in this session to do a rigorous market scan" and caveated my whole answer. That was false. `WebSearch` and `WebFetch` are deferred tools in Claude Code — they're available the whole time, I just hadn't loaded them via `ToolSearch`.
 **What Levi said:** "How can we fix this that you said 'I can't web-search in this session'? How can we make you able to web search?" Not angry, but clearly asked me to solve the actual problem.
