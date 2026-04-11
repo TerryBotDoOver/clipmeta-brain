@@ -143,16 +143,30 @@ Python pipeline (newer / more developed). Files directly in home dir:
 
 **The cross-machine pipeline:** Source footage on Dell network share `\\10.0.0.157\StillFrequency` → SSH/SCP to Predator → Render on RTX 4070 NVENC → Upload from Predator with YouTube API.
 
-## Status (best guess as of 2026-04-11)
+## Status (updated 2026-04-11 from STILL_FREQUENCY_README + Terry daily notes 2026-04-05/06)
 - ✅ Launch plan complete (March 31)
-- ✅ Pipeline coded (4+ versions iterated)
-- ✅ Channel created with branding
-- ✅ Cross-machine render setup working
-- ⚠️ First render (528Hz Hawaii rough coast, 10hr) was interrupted by gateway restart, file got moov atom corruption
-- ❓ Re-render attempt: unclear if completed
-- ❓ First video upload: unclear if happened
-- ❓ Subscriber count: unknown
-- ❌ Likely **stalled** — no mention in Hermes session logs since early April
+- ✅ Pipeline coded (4+ Python iterations on disk + JS version in openclaw workspace)
+- ✅ Channel created with branding (`UCxEU8jGxTj-6buGKos8disg`, @stillfrequency)
+- ✅ Cross-machine render setup working (Dell network share → Predator RTX 4070 NVENC)
+- ✅ **First video render COMPLETE and verified** (April 5): `/home/lb12340/still_frequency_output/528hz_hawaii_rough_coast_528hz_10h_master.mp4` — exactly 10:00:00, H.264 1080p, AAC stereo, 48GB
+- ✅ STILL_FREQUENCY_README declares: "Pipeline ready for handoff to production"
+- ⚠️ **First upload FAILED on April 4-5** — YouTube removed it because the account was unverified (15-minute upload cap for unverified accounts; the video was 10 hours)
+- ✅ Levi verified the YouTube account on April 5 → upload cap raised to 12 hours
+- ⚠️ **Re-upload was in progress via Hermes on April 5**, status not confirmed in any later note
+- ❓ Whether the re-upload succeeded — not in any Hermes log after 2026-04-06
+- ❌ **No published video on the channel as of last known data point (2026-04-06)**
+- ❌ **No mention in Hermes session logs since 2026-04-06** — the project went quiet right after the verification fix
+
+### Why this matters
+The pipeline is genuinely DONE. The 48GB master file genuinely exists. The only thing between Levi and his first published Still Frequency video is **finding out whether Hermes's re-upload after account verification actually completed.** This is a 30-second check, not a project to restart.
+
+## Publishing strategy (locked in 2026-04-05)
+- **3 long-form videos per week:** Mon / Wed / Fri at 8 PM ET
+- **Companion Shorts same day** at 6 PM ET (30-60 sec clip + text overlay "[FREQ]Hz for 60 seconds. Feel the shift.")
+- **Frequency rotation order:** 528Hz ✅ → 963Hz next → 432Hz → 396Hz → 417Hz → 639Hz → 741Hz → 285Hz → 174Hz
+- Levi creates project folders manually; notifies Hermes. **No folder watcher cron** (deliberate — Levi wants curation control)
+- Suno prompt for 963Hz already written and ready (ambient healing, crown chakra, no percussion, loops cleanly)
+- Target: 4+ hour average watch time per video. Kill any track under 60% retention to avoid algorithm death spiral.
 
 ## Honest pushback
 This is the most fully built of [[levi|Levi]]'s side projects. The economics are real ($10.92 RPM is verified, not hype). The pipeline exists. The footage is owned. The cost is $10/mo.
@@ -169,10 +183,9 @@ The next move is **getting one video live**, not improving the pipeline. The Haw
 If you don't want to do this anymore, that's fine — kill it and free the mental space. But don't let it sit half-built draining attention.
 
 ## Things to find out
-- Did the rerender of Hawaii 528Hz happen?
-- Is there a published video on the channel?
-- Why did this stall? (Hermes uptime? Lost interest? Other priorities?)
-- Should I read `STILL_FREQUENCY_README.md` for current state?
+- **Did Hermes's post-verification re-upload of 528Hz Hawaii actually complete?** (highest-priority unknown — the master file exists, the account is verified, this is the only thing left)
+- Did Hermes ever generate the 963Hz Suno track to start the rotation?
+- Why did the project go quiet 2026-04-06? (Hermes uptime? Discord token issue? Lost interest?)
 
 ## Cross-references
 - [[business|Business hub]]
