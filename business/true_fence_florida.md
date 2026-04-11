@@ -1,29 +1,23 @@
 # True Fence Florida
 
-> Levi helps maintain a WordPress website for a fence company in Southwest Florida. Captured 2026-04-11 from Terry's MEMORY.md.
+> [[keilly|Keilly]] (Levi's girlfriend) owns this fence company in Southwest Florida. Levi helps her with the website.
+> Resolved 2026-04-11: Terry's notes spelled her name "Kelly Trujillo" — that was a voice-to-text misspelling of **Keilly**, same person.
 > Part of [[business|business]]'s graph.
 
 ## What it is
-A fence company in Southwest Florida. Levi is helping maintain their WordPress website. Per Terry's notes: "WordPress site for Levi's girlfriend's fence company in SWFL."
+**[[keilly|Keilly]]'s fence company.** She's the owner. Levi helps her maintain the WordPress website.
 
-**Status:** Active, ongoing engagement. Terry does the work, Levi owns the client relationship.
+**Status:** Active, ongoing. Levi does the website work himself (or via Terry/Claude Code as needed).
 
 ## Business details
 - **Business name:** True Fence LLC
-- **Owners:** Franklin + Kelly Trujillo
+- **Owners:** Franklin Trujillo + [[keilly|Keilly Trujillo]] (Keilly is Levi's girlfriend; Franklin is family — relationship to confirm with Levi)
 - **Location:** North Port, FL
 - **Phone:** 941-275-9550
 - **Website:** https://truefenceflorida.com
 
-## ⚠️ Open question: Kelly vs Keilly
-Terry's notes say the owners are "Franklin + Kelly Trujillo" and call this "Levi's girlfriend's fence company."
-
-[[levi|Levi]] has told me his girlfriend's name is **Keilly** (different spelling). So one of these is true:
-1. **Kelly = Keilly** (different spelling, same person — Levi typed Keilly to me, Terry recorded Kelly)
-2. **Kelly is Keilly's family** (mother? sister? sister-in-law?) and the fence company belongs to her family
-3. **Different people** entirely
-
-I should ask Levi to clarify rather than assume. The relationship matters for context. See [[keilly|Keilly's profile]].
+## Voice-to-text spelling note
+Keilly's name often comes through voice transcription as "Kelly" or "Kaylee" — they're all the same person. Always normalize to **Keilly** in the brain.
 
 ## Tech stack
 - **CMS:** WordPress 6.9.4
