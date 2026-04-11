@@ -134,6 +134,29 @@ When you find content in `journal/inbox.md`:
 - Make sure today's daily log is complete
 - If anything changed in any domain, update the relevant domain file
 - Make sure `next_actions.md` (in the relevant domain) reflects what's left
+- **Update Mission Control dashboard files** (see next section)
+
+### Mission Control dashboard sync (the visual dashboard Levi uses)
+
+Levi runs a Node.js dashboard at `http://localhost:3131` (lives in `C:\Users\levic\.openclaw\workspace\dashboard\`, runs inside WSL Ubuntu on the Dell). The dashboard reads from several files. Hermes (his other agent) was supposed to keep these fresh and stopped doing it ~28 days ago, leaving the dashboard stale. **You are now responsible for keeping these in sync.**
+
+**After any meaningful work session, update these files:**
+
+1. **`C:\Users\levic\.openclaw\workspace\MISSION_CONTROL.md`** — the master project tracker. Update the "Recently Shipped" section, current priorities, known issues. Bump the `_Last updated:` date at the top.
+
+2. **`C:\Users\levic\.openclaw\workspace\memory\task-log.json`** — append a new entry per significant task you completed:
+   ```json
+   {"id": "task-NNN", "project": "ClipMeta", "description": "What you did", "assignee": "Claude", "status": "completed", "timestamp": "ISO date"}
+   ```
+   - Use `"assignee": "Claude"` (NOT "Terry" — that's Hermes's slot)
+   - Pick the next sequential ID
+   - Project values: ClipMeta, ClipMeta_Brain, Operations, Mission Control, etc.
+
+3. **`C:\Users\levic\.openclaw\workspace\memory\terry-status.json`** — DO NOT overwrite this. It's Hermes's slot. Leave it alone unless Levi explicitly asks to use it.
+
+**Don't update these every tool call — only at meaningful milestones.** A "milestone" is: shipped a feature, fixed a bug, made a significant decision, finished a session. Not every Edit/Read/Bash call.
+
+**The discipline trade-off:** Updating these files takes 30 seconds per session. Skipping it means the dashboard goes stale again and Levi loses visibility. Don't skip.
 
 ### Daily log format
 Markdown with sections appropriate to the day. For ClipMeta-heavy days: bugs fixed, features built, decisions, what's left. For life-heavy days: conversations, decisions, mood notes, things to remember. Mix as appropriate. Be specific. Names, file paths, real quotes when worth keeping.
