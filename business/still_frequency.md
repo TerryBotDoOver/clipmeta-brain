@@ -35,42 +35,161 @@ So "Still Frequency" is the brand. "Healing Frequencies" is the working name and
 - **Channel art:** Dark gradient with subtle frequency wave visualization
 - **Google OAuth credentials:** Stored on Hermes (`/home/lb12340/`)
 
-## The pipeline (4 phases, each fully or semi-automated)
+## The actual production pipeline (authoritative — rewritten 2026-04-11 from Levi's own walkthrough)
 
-### Phase 1: Video assembly (FULLY automated)
-1. FFmpeg selects random clips from a footage category folder
-2. Slows footage to 0.3x-0.5x
-3. Applies color LUT (warm/cool/cosmic/dark presets)
-4. Loops/crossfades footage to match audio length (2-8 hours)
-5. Overlays particle effects + vignette
-6. Muxes audio + video
-7. Adds intro card (3 sec: frequency + title) and outro card
+> ⚠️ The earlier version of this section in this file described a simpler 4-phase pipeline with random-clip-category pulls and single-track audio loops. **That version is obsolete.** The real production workflow that Levi and Hermes actually use is the project-based, constraint-shuffle, split-render pipeline described below. Trust this section.
 
-### Phase 2: Audio creation (semi-automated)
-1. Generate 2-4 minute base track in Suno AI Pro ($10/mo, has commercial rights)
-2. Generate pure frequency tone in Audacity/ffmpeg (sine wave)
-3. Loop Suno track to target duration (2-8 hours)
-4. Mix: Suno music 70% + frequency tone 15% + nature sounds 15%
-5. Apply fade in/out
+Each video is built from **4 ingredients**: audio (long-form ambient music from Suno), video (Levi's drone clips), assembly (the render pipeline), packaging (thumbnail + title + description + tags + upload/schedule).
 
-### Phase 3: Upload & publish (FULLY automated)
-1. YouTube Data API v3 uploads
-2. AI generates title/description/tags from template
-3. Thumbnail auto-generated
-4. Schedule publish time (optimal: 6-8 PM EST)
+### Stage 1 — Pick the concept (the "video identity")
+Every video starts with a named concept like `432Hz Midnight Pass` or `528Hz Deep Sleep`. The concept determines:
+- The frequency
+- The healing angle ("deep sleep", "release fear", "spiritual sleep")
+- The mood of the music (drives the Suno prompt)
+- The style of footage (drives which drone project to draw from)
+- The wording of title/description/thumbnail text
 
-### Phase 4: Thumbnail generation (FULLY automated)
-- Canvas/Sharp generates 1280x720
-- Dark cosmic background + nature overlay + glowing Hz number + benefit text
+The identity gets locked before any rendering happens. A concept is not "432Hz + random nature clips" — it's **"432Hz Midnight Pass"**, meaning the footage has to come from the Midnight Pass drone project specifically.
 
-**Target: <10 minutes of Levi's time per video once the pipeline is built.**
+### Stage 2 — Create the music (Suno, multi-track)
+**CRITICAL: audio is NOT one track looped for 10 hours.** That's the old/naive approach and it sounds obviously repetitive.
+
+The real workflow:
+1. **Levi generates ~6 Suno tracks** per concept in Suno Pro, all variations on the same theme (manual step — Suno web app, no API)
+2. All tracks get dropped into the project folder
+3. Hermes lines them up in sequence
+4. **Crossfades between them** (~3 seconds each)
+5. **Loops that whole combined sequence** until it fills the target duration
+6. **Trims to exact final length** to match the video
+
+Result: one long seamless AAC audio file. This step is **fast** (~1 minute). Audio is not the slow part.
+
+**Why multiple tracks matter:** ~6 related tracks feel natural across 10 hours. One track looped feels artificial by minute 30.
+
+### Stage 3 — Prepare the footage (project-based, NOT category-based)
+**Old approach (now explicitly wrong):** grab random clips from an "ocean" or "forest" category pool.
+
+**Current approach (rule):** each video has its own **dedicated footage set** — all clips come from the actual drone project that matches the concept. `432Hz Midnight Pass` uses only Midnight Pass drone footage, not some other pretty lake shot that happens to look similar.
+
+This rule is **enforced for thumbnails too** (see Stage 9). It became a rule after a wrong-source thumbnail was produced once and is now explicitly disallowed.
+
+### Stage 4 — Shuffle the clips (constraint-based, not random)
+This is one of the most important and non-obvious parts of the whole system. Naive random shuffle is not good enough because clips filmed back-to-back look nearly identical. Clip 57 followed by clip 58 feels looped and cheap, even if a human would struggle to articulate why.
+
+**Levi's rule:** consecutive source-numbered clips must never play near each other. **Target spacing: 8+ positions apart.** Minimum guarantee: zero adjacent near-neighbor violations.
+
+The process:
+1. Repeat all clips enough times to cover 10 hours
+2. Randomize order
+3. **Scan the sequence for bad neighbors** (source-adjacent clips within the no-fly zone)
+4. Swap violators with safer candidates later in the list
+5. Validate the final sequence **before** committing to render
+
+This is a **first-class quality check** because once the render starts, re-doing it costs ~1.5 hours per mistake.
+
+### Stage 5 — Render the video-only track (Predator, NVENC)
+**Current workflow deliberately separates video encoding from final audio muxing.** Video is rendered as a **silent** long MP4 first.
+
+Render specs:
+- **Machine:** Predator (RTX 4070) via SSH/task scheduler from Dell — NOT the Dell itself
+- **Encoder:** H.264 NVENC (hardware)
+- **Resolution:** 4K
+- **Frame rate:** 30 fps
+- **Duration:** typically ~10 hours
+- **MP4 flags:** fragmented MP4 behavior enabled to reduce corruption risk if the render is interrupted (hard-learned lesson — a moov-atom-corrupted file from an interrupted render happened before)
+
+**Time:** ~1.5 hours for a 10-hour video on Predator NVENC. This is the slow part of the pipeline.
+
+### Stage 6 — Build the full audio track (parallel with Stage 5 or after)
+While the video render is happening, Hermes prepares the long audio file using the Stage 2 process: crossfade Suno tracks → loop → trim to exact final video duration. Fast.
+
+### Stage 7 — Mux video and audio
+Once the silent video and the long audio exist separately, FFmpeg combines them into the final deliverable. This is **fast** because both streams are already encoded — it's essentially a remux, not a re-encode.
+
+**Why split-and-mux beats one-shot render:** if something goes wrong with audio, you don't lose the 1.5-hour video render. If something goes wrong with video, you don't lose the audio work. Recovery is cheap.
+
+### Stage 8 — Verify the final file (ffprobe gate)
+**A file existing on disk does NOT mean it is valid.** This is a lesson the project already learned the hard way.
+
+Before declaring the render "done":
+- Run `ffprobe` against the output
+- Confirm the file opens cleanly
+- Confirm both audio and video streams are readable
+- Confirm duration matches expected (for a 10-hour video: ~36,000 seconds)
+
+If validation fails → not done. No upload.
+
+### Stage 9 — Thumbnail (must use project-specific footage)
+Current branded style:
+- **Background:** real footage from that video's own project (hero frame extracted from the source clips or the final video)
+- **"Still Frequency"** wordmark top right
+- **Large frequency text** bottom left ("432 Hz")
+- **Subtitle** beneath ("Midnight Pass — 10 Hours Deep Sleep")
+- **Dark bottom gradient** for text readability
+- **No manual duration badge**
+- **Output:** 1280×720 JPEG
+
+**Enforced rule:** the background frame MUST come from that video's own footage. Sourcing from a different project is explicitly disallowed after a past mistake.
+
+### Stage 10 — Metadata (per-video, no templates)
+Each upload has its own title, description, tags, optional pinned comment, category, and schedule time. **No generic metadata pasted across videos.**
+
+Title pattern:
+```
+[frequency] + [benefit] + [duration] + [context]
+```
+Example: `528Hz Deep Sleep Music | Healing Frequency for Relaxation & Meditation | 10 Hours`
+
+Description includes:
+- Explanation of the frequency
+- Sleep/relaxation positioning
+- Chapter timestamps if applicable
+- SEO-supportive language
+- Calm but clear wording
+
+### Stage 11 — Upload to YouTube (private first, then schedule)
+**Never publish immediately.** The safe upload flow is:
+1. Upload as **private** via YouTube Data API v3
+2. Set the thumbnail
+3. Check processing status via API (very long 4K files can get stuck processing — this has happened)
+4. Confirm YouTube is processing it properly
+5. Set schedule time
+6. Leave it private/scheduled until Levi decides to release
+
+This process exists because of real incidents where huge 4K files got stuck in processing or uploaded with wrong durations.
+
+## Production failure modes (what breaks and why it matters)
+1. **Bad clip shuffle** — makes repetition obvious to the eye, forces a re-render (~1.5 hours lost). Mitigation: Stage 4 constraint check before render.
+2. **Wrong-source thumbnail** — violates branding, must be re-done. Mitigation: Stage 9 rule that thumbnail hero frame must come from the same project's footage.
+3. **Broken long render** — interrupted render produces invalid MP4s. Mitigation: fragmented MP4 flags + Stage 8 ffprobe validation.
+4. **YouTube processing stuck** — especially for very large 4K uploads. Mitigation: upload private, check status via API, don't trust "uploaded" as "live".
+5. **Missing source organization** — if the right project footage/audio isn't clearly locatable, the pipeline drifts or makes wrong assumptions. Mitigation: one project folder per video, explicit layout.
+
+## The target operating mode (fully hands-off, what Levi wants)
+**Night before:** Levi drops footage set + the ~6 Suno tracks for one concept into a designated project folder.
+
+**Overnight:** Hermes
+- Builds the constraint-shuffled clip list
+- Kicks off the long Predator NVENC video-only render
+- Builds the long audio from the Suno tracks
+- Muxes video + audio after render completes
+- Runs ffprobe validation
+- Extracts the thumbnail hero frame from the correct source
+- Generates thumbnail + title + description + tags
+- Uploads as private
+- Checks YouTube processing status
+- Sets the scheduled publish time
+- Reports completion in `#build-log` / `#uploads-log`
+
+**Next day:** finished package is already private/scheduled on the channel. Levi reviews and releases (or lets the schedule fire).
+
+**Levi's only hands-on steps** in the ideal state: pick the concept, generate the Suno tracks, drop files in the folder. Everything else is Hermes.
 
 ## The footage moat
 [[levi|Levi]]'s 3TB of original drone footage from [[eternal_frame_productions|Eternal Frame Productions]] is the competitive advantage:
 - **Other channels use stock footage.** YouTube's algorithm rewards original content.
-- **Reuse strategy:** same shots, different speed (0.3x-0.5x slow-mo), different color grade, reversed, different segments, different transitions. Nobody notices because viewers have their eyes closed (literally).
-- **Categorize once** into folders: ocean, sunset, aerial-nature, clouds, water-close-up, forest, night.
-- Each video pulls random clips from the relevant category, applies different processing.
+- **Project-based sourcing** (not category pools) means each video has a coherent visual identity tied to a real place Levi actually filmed.
+- Cost: already owned. Zero marginal cost per video.
 
 ## Revenue math (per the launch plan)
 | Month | Views/Mo | RPM | Revenue |
@@ -143,21 +262,27 @@ Python pipeline (newer / more developed). Files directly in home dir:
 
 **The cross-machine pipeline:** Source footage on Dell network share `\\10.0.0.157\StillFrequency` → SSH/SCP to Predator → Render on RTX 4070 NVENC → Upload from Predator with YouTube API.
 
-## Status (updated 2026-04-11 from STILL_FREQUENCY_README + Terry daily notes 2026-04-05/06)
-- ✅ Launch plan complete (March 31)
-- ✅ Pipeline coded (4+ Python iterations on disk + JS version in openclaw workspace)
-- ✅ Channel created with branding (`UCxEU8jGxTj-6buGKos8disg`, @stillfrequency)
-- ✅ Cross-machine render setup working (Dell network share → Predator RTX 4070 NVENC)
-- ✅ **First video render COMPLETE and verified** (April 5): `/home/lb12340/still_frequency_output/528hz_hawaii_rough_coast_528hz_10h_master.mp4` — exactly 10:00:00, H.264 1080p, AAC stereo, 48GB
-- ✅ STILL_FREQUENCY_README declares: "Pipeline ready for handoff to production"
-- ⚠️ **First upload FAILED on April 4-5** — YouTube removed it because the account was unverified (15-minute upload cap for unverified accounts; the video was 10 hours)
-- ✅ Levi verified the YouTube account on April 5 → upload cap raised to 12 hours
-- ⚠️ **Hermes ran low on tokens before completing the re-upload.** Levi confirmed 2026-04-11 that **he had to do the re-upload himself** because Hermes was running out.
-- ❓ Whether the manual upload Levi did is now live on the channel, and whether it has any views/subs — not confirmed
-- ❌ **No mention in Hermes session logs since 2026-04-06** — the project went quiet right after the verification fix, partly because Hermes had no tokens left to push it forward
+## Channel status (updated 2026-04-11 from Levi's walkthrough)
+**3 videos on the channel:**
+1. ✅ **528Hz Hawaii Rough Coast — LIVE.** First video. Auto-made by Hermes, auto-uploaded. This is the only publicly viewable video.
+2. ❓ **528Hz (second attempt / re-upload)** — auto-made by Hermes, **uploaded by Levi himself** because Hermes ran low on tokens mid-upload. Needs investigation — it was stuck in YouTube processing as of last check.
+3. ❓ **Third video** — also stuck/unclear, needs investigation.
+
+**Next in the pipeline (ready but not yet uploaded):**
+- 🟢 **432Hz Midnight Pass** — production-complete per the latest state
+  - 80 clips from the Midnight Pass drone project
+  - 6 Suno tracks blended
+  - Constraint shuffle passed (perfect — zero bad neighbors)
+  - Final duration: 10h 48m
+  - Ready for upload
+
+**Production evidence the pipeline works end-to-end:**
+- First 528Hz Hawaii video was fully automated (Hermes rendered AND uploaded it)
+- Second video was fully automated on the render side (Hermes rendered it) but upload was manual because of Hermes's token budget — NOT because the pipeline couldn't do it
+- So at least twice now, the auto-render side has proven itself. The upload side has proven itself once.
 
 ### Why this matters
-The pipeline is genuinely DONE. The 48GB master file genuinely exists. The only thing between Levi and his first published Still Frequency video is **finding out whether Hermes's re-upload after account verification actually completed.** This is a 30-second check, not a project to restart.
+This is **no longer** the "pipeline stalled at zero uploads" project the brain previously described. It has **shipped one live video, built another, and has 432Hz Midnight Pass queued up render-ready.** The gap between today and "hands-off factory" is smaller than it was 5 days ago.
 
 ## Publishing strategy (locked in 2026-04-05)
 - **3 long-form videos per week:** Mon / Wed / Fri at 8 PM ET
@@ -167,24 +292,34 @@ The pipeline is genuinely DONE. The 48GB master file genuinely exists. The only 
 - Suno prompt for 963Hz already written and ready (ambient healing, crown chakra, no percussion, loops cleanly)
 - Target: 4+ hour average watch time per video. Kill any track under 60% retention to avoid algorithm death spiral.
 
-## Honest pushback
-This is the most fully built of [[levi|Levi]]'s side projects. The economics are real ($10.92 RPM is verified, not hype). The pipeline exists. The footage is owned. The cost is $10/mo.
+## Can it actually be fully hands-off? (honest assessment, 2026-04-11)
+Yes — but with specific gaps to close. The pipeline has already proven the hardest parts (render, assembly, constraint shuffle, split mux, ffprobe validation, upload). The remaining work is infrastructure and edge-case handling, not core functionality.
 
-But it's also the project that most needs the **first video to actually go live** before any of the math matters. Right now you have:
-- A plan
-- A pipeline (multiple iterations)
-- Half a render
-- Zero published videos
-- Zero subscribers
+### Gaps between "today" and "drop a folder, walk away"
+1. **Hermes token burn on uploads.** Hermes ran out of tokens on ONE upload. Probable cause: the upload flow was streaming progress back through the agent context, or wrapped in retries that burned agent turns per chunk. **Fix:** make the upload a fire-and-forget shell script the agent launches (`nohup bash upload.sh &`) and checks status on via a separate status-poll, not a blocking operation. Target: ≤500 Hermes tokens per completed upload.
+2. **Gateway supervision.** The Hermes WSL gateway does not self-recover after Windows sleep/restart. If the Dell reboots overnight, the pipeline silently stops. **Fix:** wrap `hermes gateway run` in a supervised process (pm2 inside WSL, or a Windows scheduled task that pings it every 5 min and restarts on failure).
+3. **YouTube processing monitor.** Two videos are currently stuck in YouTube processing — nobody noticed because there's no watchdog. **Fix:** 20-line cron that polls `videos.list` for each uploaded video; if status is "processing" after 6 hours, ping Discord `#uploads-log`.
+4. **Project folder convention.** Levi's mental model is "drop footage and audio into the proper place." That "proper place" needs to be an explicit, documented folder layout the pipeline watches. **Fix:** lock the layout (e.g. `projects/{concept}/footage/`, `projects/{concept}/suno/`, `projects/{concept}/output/`) and either add a file watcher OR keep a "Levi posts in `#content-pipeline`: ready to render `432hz_midnight_pass`" Discord trigger.
+5. **Retention kill switch (algorithmic safety).** The launch plan says "kill tracks under 60% retention" to avoid the death spiral. Right now nothing does that. **Fix:** cron polls YouTube Analytics at 48h post-publish; unlists any track under 60% average retention. This is the one piece of automation that protects the channel from a bad track poisoning the algo.
 
-The next move is **getting one video live**, not improving the pipeline. The Hawaii 528Hz video that got corrupted should be fixed and published. After that, you can iterate on the second.
+Note that **Suno generation stays on Levi's side** — that's deliberate, not a gap. Suno doesn't have a realistic commercial API, and Levi generating ~6 themed tracks per video is his quality gate. The "hands-off" model is: Levi makes Suno + drops files + forgets, Hermes does everything downstream.
 
-If you don't want to do this anymore, that's fine — kill it and free the mental space. But don't let it sit half-built draining attention.
+### What Levi has to do per video in the ideal state
+1. Pick the concept (1 minute)
+2. Generate ~6 Suno tracks in the Suno web app (~15 min)
+3. Drop Suno files + matching footage into the project folder (2 min)
+4. Review and release when Hermes reports done (1 min)
 
-## Things to find out
-- **Did Hermes's post-verification re-upload of 528Hz Hawaii actually complete?** (highest-priority unknown — the master file exists, the account is verified, this is the only thing left)
-- Did Hermes ever generate the 963Hz Suno track to start the rotation?
-- Why did the project go quiet 2026-04-06? (Hermes uptime? Discord token issue? Lost interest?)
+**Total human time per video: ~20 minutes, none of which is babysitting render or upload.** That's the prize.
+
+### The honest "yes, if..." answer
+Yes, this can be fully hands-off on Levi's end. The core pipeline is real and has shipped. The remaining work is **5 specific gaps**, and **none of them are speculative** — each one is a known failure mode with a clear fix. The question is whether Levi wants to invest the ~1 week of focused work to close all 5 gaps, in exchange for a self-running sleep-music factory that could become the highest-ceiling project in the portfolio alongside ClipMeta.
+
+## Things to find out / verify
+- **The 2 stuck-in-processing videos** — what's their actual YouTube status right now? (YouTube Data API `videos.list` with `status` part)
+- **Is 432Hz Midnight Pass actually uploaded yet**, or still sitting as a local file waiting for upload?
+- **Current subscriber count + view count on the live 528Hz Hawaii video** — first real data point for whether the niche is working
+- **Which version of the pipeline is authoritative** — the WSL Python pipeline or the openclaw JS pipeline? (Based on the walkthrough, it sounds like the Python one has evolved further, but worth confirming)
 
 ## Cross-references
 - [[business|Business hub]]
