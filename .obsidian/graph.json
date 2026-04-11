@@ -15,13 +15,6 @@
       }
     },
     {
-      "query": "file:business",
-      "color": {
-        "a": 1,
-        "rgb": 9647082
-      }
-    },
-    {
       "query": "path:business/clipmeta",
       "color": {
         "a": 1,
@@ -36,10 +29,38 @@
       }
     },
     {
-      "query": "file:eternal_frame_productions OR file:resale_flipping",
+      "query": "file:still_frequency OR file:served_cold",
+      "color": {
+        "a": 1,
+        "rgb": 4885899
+      }
+    },
+    {
+      "query": "file:site_rules OR file:true_fence_florida",
+      "color": {
+        "a": 1,
+        "rgb": 3114842
+      }
+    },
+    {
+      "query": "file:eternal_frame_productions OR file:resale_flipping OR file:freelance_web_design",
       "color": {
         "a": 1,
         "rgb": 12745472
+      }
+    },
+    {
+      "query": "path:business",
+      "color": {
+        "a": 1,
+        "rgb": 9647082
+      }
+    },
+    {
+      "query": "path:operations",
+      "color": {
+        "a": 1,
+        "rgb": 2904194
       }
     },
     {
@@ -85,6 +106,27 @@
       }
     },
     {
+      "query": "path:health OR path:goals OR path:finance OR path:creative OR path:learning OR path:routines",
+      "color": {
+        "a": 1,
+        "rgb": 11889599
+      }
+    },
+    {
+      "query": "path:agent_shared OR path:backend OR path:private",
+      "color": {
+        "a": 1,
+        "rgb": 6710886
+      }
+    },
+    {
+      "query": "file:working_context OR file:CLAUDE OR file:README OR file:START_HERE",
+      "color": {
+        "a": 1,
+        "rgb": 10066329
+      }
+    },
+    {
       "query": "file:mistakes",
       "color": {
         "a": 1,
@@ -102,6 +144,6 @@
   "repelStrength": 19.5634095634096,
   "linkStrength": 0.545738045738046,
   "linkDistance": 100,
-  "scale": 0.45050811767578025,
+  "scale": 0.11660891579457269,
   "close": true
 }
