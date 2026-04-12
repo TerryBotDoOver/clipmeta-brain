@@ -38,3 +38,21 @@ Same vault, same file. Native Obsidian experience.
 ## Entries
 
 (empty — drop your first note here)
+
+4/11/26
+Reminder to look into eternal frame productions, books and finances and file taxes for 2025.
+
+I also need to go back in and look at all the Quran jobs that we had going with Hermès. We need to figure out if we can still do all those without using Hermès, and what kind of APIs we need, or if we can do it without the APIs? the goal is to do all those for as cheap as possible. maybe using a basic open ai api.
+
+If I connect you with all of my bookkeeping services. And all my finances for my other business internal frame productions, can you track everything and make a separate interface for it all so I don't have to pay for bookkeeping services.
+
+I need you to look into the Google ads and the Reddit. Ads check performance and see where we can improve, and then we need to figure out how to hug it up to Google Pixel. And get that stuff all working. Properly cause Hermès couldn't figure it out.
+
+im at the sharktooth festival in vanish right now with keilly, my mom, and my stepdad. we got some food called the cheesy heifer. it was mac and cheese dish with barbecue brisket on it, really good. the food truck was called gethcasum like come get you some play on words
+
+Remember to make a movie list and a food list. The movie list is for movies and T. V shows that we've watched and that we're currently watching where to watch them. What platform and like? Where we're at in the season, or in the movie, or if we've watched it before and then food list is restaurants or places we've gone to eat. What we've eaten there and whether we liked it or didn't like it.
+
+
+
+
+
