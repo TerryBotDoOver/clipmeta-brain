@@ -137,8 +137,54 @@ Or ask Claude to do it via the Cloudflare API (needs a fresh API token with Acce
 | `start-mission-control.ps1` | Idempotent startup script for dashboard + tunnel |
 | `install-autostart.ps1` | Registers the Windows Task Scheduler auto-start |
 
+## Cron Runner (built 2026-04-12)
+
+The dashboard server.js now embeds `cron-runner.js` — a Node.js scheduler that replaces all of Hermes's cron jobs. Runs inside the same tmux session as the dashboard.
+
+### tmux management
+```bash
+# Attach to the running session (from WSL):
+tmux attach -t mission-control
+
+# Check if it's running:
+tmux has-session -t mission-control 2>/dev/null && echo "running" || echo "dead"
+
+# Full restart (dashboard + tunnel + crons):
+tmux kill-session -t mission-control 2>/dev/null
+tmux new-session -d -s mission-control -c /mnt/c/Users/levic/.openclaw/workspace/dashboard 'node server.js 2>&1 | tee server.log'
+# Tunnel starts separately or add to the same session as a second window
+```
+
+### Cron endpoints + auth
+Most cron jobs hit ClipMeta API endpoints with auth headers:
+- `DRIP_SECRET` — used for email drip, welcome batch, rollover, referral qualifier
+- `ADMIN_API_SECRET` — used for stripe-reconcile (`vyzpFC5PVM7HRI4EkZsmTOd8DgJe2cAX`, hardcoded fallback)
+- Rollover + referral qualifier were patched to accept DRIP_SECRET as fallback since CRON_SECRET from Vercel didn't match
+
+### Startup safety
+On restart, only SAFE monitoring jobs fire immediately (signup monitor, feedback check, SEO check, etc.). Email-sending jobs (drip, welcome, paid drip) only fire on their scheduled time — prevents duplicate blasts when the cron system restarts.
+
+### 14 active jobs
+See [[cron_jobs]] for the full updated list. Key additions since Hermes:
+- Blog Post Writer (Mon+Thu, gpt-4o-mini)
+- Reddit Monitor (every 6h, 7 subreddits, public JSON API)
+- Backlink Finder (daily, Brave Search API)
+- SEO Rank Tracker (weekly, Brave Search)
+
+### Cron Monitor page
+`crons.html` — phone-style app grid with notification badges. Each job is a tile; tap → drawer with stats, content, "Run Now" button. Per-item viewed tracking in localStorage. Auto-refreshes every 60s.
+
+## Dashboard pages (as of 2026-04-12)
+
+| Page | File | What it shows |
+|------|------|---------------|
+| ClipMeta Hub | `clipmeta-hub.html` | Tabbed container for all sub-pages |
+| Finance | `finance.html` | P&L, MRR, OpenAI costs, promo tracking |
+| Crons | `crons.html` | Cron job status, badges, run-now, content drawers |
+
 ## Cross-references
 - [[dell_topology]] — the Dell laptop where all this runs
 - [[agents]] — Terry/Hermes (the original dashboard builders)
 - [[wsl_hermes_workspace]] — WSL home where cloudflared + credentials live
-- [[cron_jobs]] — the cron system that feeds analytics-snapshots.json
+- [[cron_jobs]] — the cron system (now embedded in dashboard, not Hermes)
+- [[cron_migration]] — the migration plan (COMPLETE as of 2026-04-12)

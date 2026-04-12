@@ -6,7 +6,7 @@
 ## Identity
 - **Name:** Sakis (handle: sakispalskg)
 - **Email:** sakispalskg@gmail.com
-- **Plan:** Pro (was trialing as of 3/30, presumably converted)
+- **Plan:** Starter $9/mo (confirmed paying as of 2026-04-12; was listed as Pro trial in Terry's notes 3/30 — corrected)
 
 ## Why he matters
 **Sakis is one of the most valuable customers ClipMeta has had**, even though he's not the highest-volume user. Reasons:

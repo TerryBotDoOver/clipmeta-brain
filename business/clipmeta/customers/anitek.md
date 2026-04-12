@@ -5,8 +5,8 @@
 
 ## Identity
 - **Email:** anitek123@gmail.com
-- **Plan as of 3/24:** Pro trialing
-- **Status:** Real customer (not a test account)
+- **Plan:** Pro $19/mo (confirmed paying as of 2026-04-12; was trialing as of 3/24)
+- **Status:** Active, paying
 
 ## What I know
 Almost nothing beyond the email and plan status. Terry's MEMORY.md just listed them in a customer table on 3/24. No interaction history, no feedback, no support tickets noted.

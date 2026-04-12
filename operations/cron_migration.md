@@ -1,36 +1,32 @@
-# Cron Job Migration (Post-Hermes)
+# Cron Job Migration (Post-Hermes) — COMPLETE
 
-> Levi wants to audit all [[operations/cron_jobs|cron jobs]] that were running through Hermes and figure out how to keep them running without Hermes — as cheaply as possible.
-> Captured from [[journal/inbox|inbox]] on 2026-04-11.
+> **STATUS: DONE** as of 2026-04-12. All essential cron jobs migrated from Hermes to `cron-runner.js` embedded in the Mission Control dashboard.
 
-## Context
-- Hermes (the OpenClaw agent) ran 31 scheduled tasks — see [[operations/cron_jobs|full list]]
-- With Hermes no longer available, these jobs need a new execution path
-- Levi's priority: **cost minimization** — do it as cheaply as possible
+## What was built
+- `cron-runner.js` — a Node.js scheduler (using `node-cron`) embedded in the Mission Control `server.js` process
+- Runs inside tmux session "mission-control" in WSL on the Dell
+- **14 of 15 jobs active**, 1 disabled (Critical QA needs Playwright which isn't set up)
+- Cost: essentially $0 — only AI cost is gpt-4o-mini for Blog Post Writer (~$0.01/post)
 
-## Why Hermes is down
-Hermes requires Anthropic API tokens. Levi didn't buy them after the April 4 third-party ban. Hermes CAN run again if tokens are purchased — but the goal is to NOT depend on that. Migrate the essential jobs to cheaper alternatives.
+## Architecture decisions
+- Scheduler lives INSIDE the dashboard server.js process (not a separate process) — single tmux session, one thing to manage
+- tmux is the detach mechanism (setsid/nohup was unreliable in WSL)
+- Safe-only startup: monitoring jobs fire on restart, email-sending jobs only on schedule
+- Jobs that need ClipMeta API auth use DRIP_SECRET (rollover + referral were patched to accept it as fallback)
 
-## Jobs Levi confirmed he still needs (2026-04-11)
-1. **Email drip sequence** — keeps new signups engaged
-2. **Blog post writer/publisher** — content pipeline for SEO
-3. **Stripe + Supabase subscription sync** — probably the webhook reconciliation / trial-to-paid monitor
+## Migration outcome (Hermes 31 jobs → cron-runner 15 jobs)
+The 31 Hermes jobs were triaged down to 15 essential ones. Killed jobs were either:
+- Agent self-management (Daily Memory Collector, Morning Briefing, Task Drafts — all Terry/Hermes internals)
+- Content creation that required full agent context (Content Script Writer, Content Creator, Content Post Scheduler)
+- Discord-dependent (Email Approval Sender — needs Discord bot token which is broken)
+- Redundant monitoring (Cron Health Monitor, Mythos Model Monitor)
+- One-shot reminders (HN, Sakis, Served Cold, Reddit thread — converted to brain notes)
 
-## Questions to answer
-- [ ] Full triage of all 31 jobs: keep / kill / migrate (Levi needs to look at the list)
-- [ ] Which ones require an LLM / AI call vs. simple API hits?
-- [ ] Can any be replaced with basic scripts (no AI needed)?
-- [ ] For the ones that need AI: what's the cheapest option? (basic OpenAI API `gpt-4o-mini`, local model via Ollama, etc.)
-- [ ] What external APIs do we need access to? (Stripe, Resend, Reddit, etc.)
-- [ ] Can we run them on a simple scheduler (GitHub Actions, cron on the Dell, Windows Task Scheduler)?
-
-## Potential approaches
-1. **Basic OpenAI API** — Levi's suggestion; use `gpt-4o-mini` or similar cheap model for tasks that need generation
-2. **No-AI scripts** — For monitoring/health checks, simple HTTP calls may suffice
-3. **Local model on the Dell** — Free after setup, but requires the Dell to stay online
-4. **GitHub Actions cron** — Free tier has limited minutes but could handle lightweight jobs
+## What's running now
+See [[mission_control_commands]] for the full list + tmux management commands.
 
 ## Cross-references
-- [[operations/cron_jobs]] — the full list of 31 jobs
+- [[operations/cron_jobs]] — the original Hermes job list (31 jobs)
+- [[operations/mission_control_commands]] — current commands + cron runner details
 - [[operations/agents]] — agent architecture
-- [[operations/dell_topology]] — the Dell server that could host local execution
+- [[operations/dell_topology]] — the Dell server where this runs

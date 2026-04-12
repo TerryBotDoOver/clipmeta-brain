@@ -94,6 +94,14 @@ Format:
 
 ---
 
+## 2026-04-11 — Fired ALL email cron jobs on every restart, burning Resend quota
+**What I did wrong:** The first version of `cron-runner.js` had no concept of "safe startup". Every time the Mission Control dashboard restarted (which happened several times during development), ALL cron jobs — including email senders — would evaluate their schedules and some would fire immediately. Combined with the Welcome Email Batch having no time window, this caused 41 welcome emails to blast out on first run and ate through the entire Resend daily quota (100 emails/day free tier).
+**What Levi said:** Noticed the Resend quota was exhausted and asked why.
+**What I learned:** Any system that sends real emails to real customers needs restart-safe behavior. Email-sending jobs should ONLY fire on their actual schedule, never on startup. Monitoring/read-only jobs are safe to fire on startup.
+**Don't do this again:** When building a scheduler, separate jobs into "safe on restart" (monitoring, data collection) and "schedule-only" (anything that sends emails, charges money, or modifies customer-facing state). The welcome email batch also needs a time window (48h) to prevent blasting the entire user base.
+
+---
+
 ## 2026-04-11 — Inherited a wrong fact about helton_1818 and repeated it for days
 **What I did wrong:** The brain's memory files described [[helton|helton_1818]] as "the heaviest free user" — top conversion target. I read this from `current_state.md` and `live_business_context.md` and repeated it across multiple sessions without verifying. When Levi asked me to dig into the user, I queried Supabase and discovered helton has been on a STUDIO TRIAL since 2026-04-04 — never on the free plan, ever. The "heavy free user" framing was completely wrong.
 **What Levi said (in effect):** "I want you to dig into this customer and tell me everything you can about them" — and was surprised to learn the customer was on Studio.

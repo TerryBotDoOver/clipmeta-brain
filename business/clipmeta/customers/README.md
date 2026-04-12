@@ -4,12 +4,23 @@
 > One file per customer, named by handle/first-name.
 > Cross-link from [[current_state]] and [[live_business_context]].
 
-## Current customer files
-- [[helton|Helton]] — Studio trial converting ~5h from now (highest revenue)
-- [[sakis|Sakis Palskg]] — Pro, the highest-value feedback source
-- [[anitek|Anitek]] — Pro trial as of 3/24, status unknown
-- [[andrew|Andrew (Airoma)]] — Starter trial as of 3/24, status unknown
-- See also: [[current_state]] for the live MRR + user counts
+## Current customer files (6 paying as of 2026-04-12)
+
+### Studio ($49/mo)
+- [[helton|Helton]] — Studio, converted from trial 2026-04-11 (highest revenue, 525 lifetime uploads)
+
+### Pro ($19/mo)
+- [[anitek|Anitek]] — Pro, confirmed paying
+- [[haydn_hopewell|Haydn Hopewell]] — Pro with FOUNDING50 promo (pays $9.50/mo, expires 2026-07-04)
+
+### Starter ($9/mo)
+- [[sakis|Sakis Palskg]] — Starter, the highest-value feedback source
+- [[eric_bilodeau|Eric Bilodeau]] — Starter, confirmed paying
+- [[andrew|Andrew (Airoma)]] — Starter, confirmed paying
+
+### Summary
+- **Effective MRR:** $104.50 (Haydn's promo reduces list MRR of $114)
+- See also: [[current_state]] for live metrics
 
 ## What goes in each file
 - Identity (name, email, country, language)

@@ -5,7 +5,7 @@
 
 ## Identity
 - **Email:** andrew@airoma.com.au
-- **Plan as of 3/24:** Starter trialing
+- **Plan:** Starter $9/mo (confirmed paying as of 2026-04-12; was trialing as of 3/24)
 - **Company:** Airoma (Australian, based on the .com.au TLD)
 - **Likely colleague:** debbier@airoma.com.au or debbie@airoma.com.au (also showed up in Terry's notes as "abandoned checkout, likely Andrew's colleague, on hold")
 
