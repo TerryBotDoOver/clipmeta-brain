@@ -7,7 +7,11 @@
 
 | Title | Platform | Type | Progress | Notes |
 |-------|----------|------|----------|-------|
-| *(add entries here)* | | | | |
+| Kill Tony | YouTube | Comedy/Podcast | New episode every Monday | Watch with [[keilly\|Keilly]] |
+| Below Deck | Bravo/Peacock | Reality TV | ongoing | Watch with Keilly |
+| Summer House | Bravo/Peacock | Reality TV | ongoing | Watch with Keilly |
+| Traitors | Peacock | Reality TV | ongoing | Watch with Keilly |
+| House of Villains | E! | Reality TV | ongoing | Watch with Keilly |
 
 ## Watched
 
