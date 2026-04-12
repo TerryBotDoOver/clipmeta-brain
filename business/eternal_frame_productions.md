@@ -18,6 +18,15 @@ Active and operational. No active dev tasks. This is a service business, not a s
 - [[clipmeta|ClipMeta]] grew out of this practice -- the metadata generation pain Levi experienced as a stock contributor became the seed of the SaaS
 - [[idea|The drone golf courses idea]] is also an extension of this business (could pull in real videography work for premium courses)
 
+## Bookkeeping Automation Idea (2026-04-11)
+Levi wants to connect all EFP bookkeeping services and finances to an automated system — build a separate interface that tracks everything so he doesn't have to pay for a bookkeeper. This would involve:
+- [ ] Identify what bookkeeping services/tools EFP currently uses
+- [ ] Determine what financial accounts need to be connected
+- [ ] Build or configure an interface to track income, expenses, invoices, etc.
+- [ ] Replace paid bookkeeping service with the automated solution
+
+See also: [[finance/taxes_2025|2025 tax filing reminder]]
+
 ## Things to add
 - Year founded
 - Is Levi solo or does he have help?

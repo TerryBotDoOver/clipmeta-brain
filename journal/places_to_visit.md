@@ -7,6 +7,14 @@
 
 ## Restaurants
 
+### Shark Tooth Festival — Venice, FL
+- **Date visited:** 2026-04-11
+- **Type:** Annual festival / outdoor event
+- **Who went:** Levi, [[keilly|Keilly]], mom ([[norma|Norma]]), stepdad ([[pete|Pete]])
+- **Food highlight:** The Cheesy Heifer from the **Gethcasum** food truck ("come get you some" play on words) — mac and cheese with BBQ brisket. Really good.
+- **Status:** Visited
+- **See also:** [[journal/food_list|Food List]]
+
 ### Cafe 776 — Englewood, FL
 - **Address:** 138 N Indiana Ave, Englewood, FL 34223
 - **Phone:** (941) 475-0819
