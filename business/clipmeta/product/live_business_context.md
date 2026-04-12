@@ -48,10 +48,22 @@
 - ClipMeta differentiator: stock-footage-first workflow, review-first UX, batch processing, multi-platform export
 - Market commoditized at shallow end; ClipMeta wins on workflow depth
 
-## Google Ads
-- Campaign live (Performance Max, $5/day)
-- Conversion tracking deployed
-- API access applied for
+## Advertising (Updated 2026-04-12)
+
+### Google Ads
+- Campaign: Performance Max, $5/day | $20.42 spent, 34 clicks, 0 conv (conversion was misconfigured, fixed 2026-04-12)
+- Conversion label: `AW-18071437581/oEmICIrewpccEI2CkalD` — verified working end-to-end
+- API: developer token pending compliance approval (follow up Apr 15)
+
+### Reddit Ads
+- Campaign: "ClipMeta - Stock Footage Creators", $5/day, CONVERSIONS objective
+- $19.03 spent, 56 clicks, 1 signup, 0 purchases | CPC dropping ($0.94 → $0.18)
+- Targeting: r/videography, r/stockphotography, r/Filmmakers, r/photography | US/CA/GB/DE/NL/AU
+- API connected, live data in Mission Control dashboard
+
+### Meta Pixel + Reddit Pixel
+- Both deployed on clipmeta.app with conversion events firing on upgrade
+- Meta Pixel duplicate firing bug fixed 2026-04-12
 
 ## Current Business Priorities
 1. Conversion (free to paid)

@@ -7,42 +7,35 @@
 ---
 
 ## Active Focus
-Late-night session wrapping up. Big sweep across Mission Control cleanup, Studio plan economics, [[helton|helton_1818]] deep dive, Studio regen cap deployment. Brain graph getting fuller — added customer profiles + a real correction to mistakes.md.
+Late-night ads blitz session (2026-04-12). All three ad platforms now have working conversion tracking. Ads dashboard built in Mission Control. Reddit Ads API fully connected. Google Ads API blocked on compliance approval.
 
 ## Time-sensitive — read first next session
-**[[helton|Helton A da Silva]] trial converts at 2026-04-11 08:01 UTC.**
-First thing next session: query Stripe + Supabase to confirm whether the conversion happened.
-- If YES: send him a "thanks for joining" email that acknowledges his volume specifically. Update MRR. Celebrate.
-- If NO: figure out why and learn from it.
+1. **Google Ads API compliance follow-up** — if no reply by 2026-04-15, send a nudge email to ads-api-compliance@google.com. The response Levi sent on 2026-04-08 was thorough.
+2. **First Google Ads conversion watch** — now that the conversion label is fixed, the next real upgrade should register as a conversion. Check Google Ads dashboard.
+3. **[[helton|Helton A da Silva]] trial conversion check** — was expected at 2026-04-11 08:01 UTC. Verify in Stripe + Supabase.
 
-## Recently Completed (this session)
-- Mission Control dashboard secrets cleanup (8 secrets including Stripe live key moved to .env)
-- MISSION_CONTROL.md sync (was 28 days stale)
-- terry-status.json + task-log.json updated (16 new task entries for our recent work)
-- New CLAUDE.md section: Mission Control dashboard sync discipline
-- Helton deep dive — created [[helton|customer profile]] with full identity, usage, prediction
-- Discovered helton was NOT on the free plan — Studio trial since Apr 4. Logged in [[mistakes]].
-- Studio plan unit economics analysis (per-clip $0.02, Studio at cap = $7 profit, worst case = -$192 loss)
-- Studio regen cap deployed (500/mo) — 6 files updated, deployed to production
-- Two new persistent feedback rules saved (descriptive tool descriptions + plain-language approval explanations)
-- Daily logs + decisions log + active issues + next actions all updated
+## Recently Completed (this session — 2026-04-12)
+- Meta Pixel: fixed duplicate firing (inline script + component both loading in layout.tsx). Deployed.
+- Google Ads: fixed conversion label (was `AW-18071437581` only, now `AW-18071437581/oEmICIrewpccEI2CkalD`). Verified end-to-end in browser with qa@clipmeta.app test account. Deployed.
+- Reddit Ads API: set up OAuth app ("ClipMeta Ads Reporter"), completed auth flow, pulled campaign data via API
+- Reddit Ads performance review: $19.03 spent, 56 clicks, CPC trending down to $0.18, 1 signup
+- Google Ads performance review (manual CSV): $20.42 spent, 34 clicks, 0 conversions (pre-fix)
+- Mission Control: built Ads tab in ClipMeta Hub with live Reddit data refresh + Google manual snapshot + combined summary
+- qa@clipmeta.app password reset to `ClipMetaQA2026!` for testing
+- Credentials saved: Reddit Ads creds in Claude memory, Hermes directory, and dashboard .env
+- Brain graph updated: [[clipmeta_ads]], [[current_state]], [[live_business_context]], [[meta_pixel_implementation]]
 
 ## Open Threads
-- helton conversion check (above) — 5 hours from now
-- Stripe key rotation as follow-up to the dashboard cleanup
-- Video-worker hardcoded secrets still need cleanup
+- Google Ads API compliance approval (follow up Apr 15)
+- helton conversion check
 - Metadata repetition fix
-- Morning brief Discord cron (architecture designed, not built)
-- helton onboarding (he doesn't seem to know about regenerations)
+- Discord bot token still broken
+- FB Page Access Token still expired
+- Metadata Grader still undeployed
 
 ## Notes for Next-Me
-- The brain is now a full life knowledge graph with 14 people files, customer profiles, business folder structure, daily logs, working context, mistakes log
-- Levi can SSH into the Dell from the Predator: `ssh -p 2222 levic@clipmeta-dell` (see persistent memory `reference_remote_access`)
-- Vault auto-syncs Dell ↔ Predator via Obsidian Git plugin (5min pull, 10min push)
-- Vercel deploy: `npx vercel --prod --token vcp_... --yes` from ClipMeta repo dir (token in persistent memory)
-- Supabase admin: Management API curl with PAT (see persistent memory `reference_supabase_admin`)
-- Stripe live key is in `dashboard/.env` AND in the ClipMeta repo's Vercel env vars
-- Mission Control dashboard at http://localhost:3131 (login required, password is `Ja7bFeofjrME1lSL` in `.env`)
-- Two persistent feedback rules now active: descriptive tool descriptions + plain-language approval explanations
-- Levi explicitly wants pushback, never agree-to-agree, never hallucinate
-- Helton's full real name is Helton A da Silva, lives in Ireland, probably Brazilian/Portuguese
+- Reddit Ads API refresh: one-click in Mission Control Ads tab, or `POST /api/ads/reddit/refresh`
+- Google Ads data is manual until API approved — update via `POST /api/ads/google` with snapshot JSON
+- Conversion tracking now works on all 3 platforms (Google, Meta, Reddit) via ConversionTracker.tsx
+- qa@clipmeta.app test account: `ClipMetaQA2026!`
+- All Hermes-accessible creds at `/home/lb12340/.hermes/reddit-ads-*.json` and `google-ads-*.json`

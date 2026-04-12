@@ -60,9 +60,36 @@ Paused (cost saving):
 - Daily SEO + Speed Check
 - Self-Serve Deletion Reminder (monthly, runs May 1)
 
-## Google Ads
-- Campaign live, $5/day budget (Performance Max)
-- Conversion tracking tag deployed on clipmeta.app
+## Ads & Conversion Tracking (Updated 2026-04-12)
+
+### Google Ads
+- Campaign: "Campaign #1" (Performance Max), $5/day budget
+- Customer ID: 667-455-6090 (MCC: 207-582-7325)
+- Conversion label: `AW-18071437581/oEmICIrewpccEI2CkalD` — **fixed and verified 2026-04-12** (was missing label suffix, showing Misconfigured/Inactive)
+- Total spend to date: $20.42, 34 clicks, 0 conversions (pre-fix)
+- API access: developer token in test mode, awaiting compliance approval (applied 2026-04-08, follow up 2026-04-15 if no reply)
+
+### Reddit Ads
+- Campaign: "ClipMeta - Stock Footage Creators", $5/day budget, CONVERSIONS objective
+- Account ID: a2_it6x1qz99k3n
+- Targeting: r/videography, r/stockphotography, r/Filmmakers, r/photography | US, CA, GB, DE, NL, AU
+- API connected and working (OAuth app: ClipMeta Ads Reporter)
+- Total spend to date: $19.03, 56 clicks, 1 signup, 0 purchases
+- CPC trending down: $0.94 → $0.18 over 5 days
+
+### Meta Pixel
+- Pixel ID: 1447998937339743
+- Deployed on clipmeta.app (component + noscript fallback)
+- Fires: PageView (all routes), Purchase + Subscribe (on upgrade), CompleteRegistration (signup)
+- Fixed duplicate firing 2026-04-12 (inline script + component were both loading)
+
+### Reddit Pixel
+- Pixel ID: a2_it6x1qz99k3n (inline in layout.tsx)
+- Fires: PageVisit (all pages), Purchase (on upgrade via ConversionTracker)
+
+### Mission Control Ads Dashboard
+- New "Ads" tab in ClipMeta Hub — live Reddit data (API refresh), manual Google data
+- Combined spend view across both platforms
 
 ## Recent Completed Work (April 8-9, 2026)
 - Fixed plan limit enforcement (clips table user_id issue)
