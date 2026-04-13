@@ -15,6 +15,16 @@
 - **Status:** Visited
 - **See also:** [[journal/food_list|Food List]]
 
+### Celtic Ray — Punta Gorda, FL
+- **Type:** Irish pub / event venue
+- **Date visited:** 2026-04-12
+- **Event:** CDBIA (Charlotte DeSoto Builders Industry Association) cornhole tournament
+- **Who went:** Levi, [[keilly|Keilly]]
+- **Highlight:** Live music by **Jakob Engleking** — Keilly loved his voice and song choice. Consider hiring him for a private romantic date night sometime.
+- **People met:** Darren (engraving — metal, wood, etc.), Wayne (BBQ catering), Mark & Kathy (own Just Counters & Stuff)
+- **Status:** Visited
+- **See also:** [[journal/food_list|Food List]]
+
 ### Cafe 776 — Englewood, FL
 - **Address:** 138 N Indiana Ave, Englewood, FL 34223
 - **Phone:** (941) 475-0819

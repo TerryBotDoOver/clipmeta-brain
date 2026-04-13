@@ -37,9 +37,4 @@ Same vault, same file. Native Obsidian experience.
 
 ## Entries
 
-(processed — filed into vault on 2026-04-11)
-
-
-Okay, it's April 12th Sunday. I'm at a cornhole tournament that is being hosted by the cdbia at the Celtic ray in Punta Gorda. which is the Charlotte disodoto Builders industry association cornhole event, and we lost the first round against Darren, who does engraving (metal, wood, and other stuuf) for the first round and he was with Wayne. Who does barbecue catering. we won the second round qgainst 2 women. idk who they were but keilly did good because she normally gets upset any time im near another woman. but then we also talked a lot with mark and Kathy, they own just counters and stuff.
-
-keily like Jakob Englekings voice and song choice. we listened to him at celtic ray. good music good vibes. maybe hire him for a private date some night with romantic music 
+(processed — filed into vault on 2026-04-12)
