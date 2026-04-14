@@ -6,6 +6,40 @@ Related: [[dell_topology]], [[wsl_hermes_workspace]], [[mission_control_commands
 
 ---
 
+## Zoho Books — categorize bank feed items via API
+
+Full recipe set (transfers, deposits, expenses, refunds, recategorize, unwind) is captured in auto-memory at `reference_zoho_api_patterns.md`. Quick hits:
+
+**Recategorize an already-categorized item** (e.g. fixing a bad auto-rule):
+```
+PUT /expenses/{expense_id}?organization_id=885990781
+{ "account_id": "<new>", "paid_through_account_id": "<bank>", "date": "...", "amount": N, "description": "..." }
+```
+
+**Categorize an uncategorized item as a transfer, deposit, or refund:**
+```
+POST /banktransactions/uncategorized/{feed_id}/categorize?organization_id=...
+{ "transaction_type": "transfer_fund" | "sales_without_invoices" | "expense_refund", "from_account_id": "...", "to_account_id": "...", "amount": N, "date": "..." }
+```
+
+**Categorize an uncategorized item as a regular expense** (two steps — `expense` is NOT a valid transaction_type for the categorize endpoint):
+1. `POST /expenses` with `{account_id, paid_through_account_id, amount, date, description}` → get new `expense_id`
+2. `POST /banktransactions/uncategorized/{feed_id}/match` with `{"transactions_to_be_matched":[{"transaction_id":"<expense_id>","transaction_type":"expense"}]}`
+
+**Critical gotcha for inter-account transfers (Amex↔Spark, Amex↔NavPrime):** Only categorize ONE side as `transfer_fund`. Match the other side to the created transfer record via `/match`. Categorizing both sides creates duplicate transfer records and double-counts movement.
+
+**Unwind a bad categorization:**
+```
+POST /banktransactions/{imported_transaction_id}/uncategorize?organization_id=...
+```
+Use the `imported_transaction_id` from `banktransaction.imported_transactions[0]`, NOT the wrapping transaction_id. The wrapping transfer/expense record is auto-deleted; the feed item returns to uncategorized.
+
+Access tokens last 1 hour — refresh mid-script if you hit code 57.
+
+Cannot create chart-of-accounts entries or manage auto-rules via API even with `fullaccess.all` — must use the Zoho UI for those.
+
+---
+
 ## SSH from Predator to Dell
 
 From Predator PowerShell:

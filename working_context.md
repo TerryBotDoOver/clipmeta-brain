@@ -7,7 +7,11 @@
 ---
 
 ## Active Focus
-[[still_frequency|Still Frequency]] third video rendering overnight on the Predator RTX 4070. Levi went to bed ~02:30 AM 4/14 with the pipeline mid-run (SCP transfer phase). First real end-to-end test of the rebuilt pipeline — fixed 8 bugs tonight to get here. Expected completion ~04:30-06:30 AM.
+**Two parallel threads as of 2026-04-14 late night:**
+
+1. **[[still_frequency|Still Frequency]] third video** rendered overnight on the Predator RTX 4070. Status should be verified first thing next session (see "First thing to do" below).
+
+2. **[[eternal_frame_productions|EFP]] 2025 tax prep.** Second session of 4/14 was a full 2026-books cleanup run — 148 transactions categorized across Amex/Spark/NavPrime, broken Zoho "Google Ads" auto-rule identified, 2026 YTD P&L now clean. Next step: file personal 4868 extension tomorrow morning, then move to the actual 2025 1120-S in TurboTax Business. See [[project_efp_2026_books_cleanup]] memory for the full state.
 
 ## First thing to do next session
 1. **Check pipeline status.** Hit `http://localhost:3000/projects/963hz_type_crown_chakra` OR directly read `C:\Users\levic\Desktop\Still Frequency\video_projects\963hz_type_crown_chakra/` for DONE / FAILED / RUNNING marker.
@@ -34,6 +38,17 @@ See [[daily_logs/2026-04-14]] for full detail.
 - Metadata Grader still undeployed
 - Discord bot token still broken
 - FB Page Access Token still expired
+
+### EFP tax prep open loops (from 2026-04-14 evening session)
+- **Personal 4868 extension** — must file tomorrow morning 4/15 (deadline today)
+- **2025 1120-S** — already past 3/15 deadline; file as soon as books support it (TurboTax Business)
+- **Delete broken "Google Ads" Zoho rule** (rule_id `6355719000000104025`) — catching every Spark charge as Advertising. 46 bad categorizations cleaned up tonight but rule still active and will re-poison new charges.
+- **Create Insurance Expense account in Zoho UI** — Full Frame Insurance $104.58 temporarily in Other Expenses
+- **$122.45 eBay mystery charge** (2026-01-19) — Levi doesn't recognize it, possible fraud, left uncategorized in Zoho pending investigation
+- **Create retroactive invoices in Zoho for Jacey Bellefeuille** — $100/mo payment plan for April 24 wedding; first payment booked but no customer invoice
+- **Reconcile ~$1,669 Amex book-vs-bank gap** — likely Stripe/PayPal income booked outside the Amex feed
+- **Consolidate Automobile Expense into Vehicle account** — dedupe the two overlapping vehicle accounts, Vehicle wins
+- **Denise Bond flow:** Levi says she paid him multiple times (not just the $250 visible in uncategorized). Other payments presumably earlier/categorized. Flagged that handyman work is flowing through EFP (Levi's call — legitimate COGS).
 
 ## Notes for Next-Me
 - **Pipeline lives at `C:\StillFrequency\`** with Python venv at `.venv\`
