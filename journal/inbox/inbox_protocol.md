@@ -1,11 +1,13 @@
-# Inbox — per-entry capture
+# Inbox protocol — per-entry capture
 
 > Every new thought from your phone becomes **its own file** in this folder.
 > Desktop processes the folder at session start and deletes the files it's done with.
 
+Back to [[inbox]] · [[levi]] · [[CLAUDE]]
+
 ## Why this folder exists
 
-It replaces the old single-file `journal/inbox.md` protocol. That file kept
+It replaces the old single-file [[inbox]] protocol. That file kept
 conflicting because your phone was appending new entries while the desktop was
 clearing processed ones — both writing to the same lines of the same file.
 
@@ -38,7 +40,7 @@ already exists.
 ## How desktop processes entries
 
 At session start Claude:
-1. Lists every `*.md` file in `journal/inbox/` (except `README.md`)
+1. Lists every `*.md` file in `journal/inbox/` (except `inbox_protocol.md` — this file)
 2. Reads each file and files the content into the right vault location
    (people, daily_logs, goals, business, etc.)
 3. **Deletes the source file** from `journal/inbox/`
@@ -59,6 +61,6 @@ where it belongs based on the text.
 - **Don't edit a file after committing it from phone.** If you want to add to
   a thought, create a *new* file. Editing a file after committing can race with
   desktop's deletion.
-- **Don't put entries in `journal/inbox.md`.** That file is now a pointer to
+- **Don't put entries in [[inbox]].** That file is now a pointer to
   this folder; it's append-only and desktop never clears it.
-- **Don't create files named `README.md`** — that's this file.
+- **Don't create a file named `inbox_protocol.md`** — that's this file.

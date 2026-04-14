@@ -107,7 +107,7 @@ Use `[[basename]]` to reference other files. Obsidian's graph view depends on th
 
 ### At session start (every time)
 1. Read `working_context.md` first (highest signal — what was I doing?)
-2. Process `journal/inbox/` — Levi may have dropped per-entry files from his phone since the last session. Read every `*.md` file in that folder (except `README.md`), file each entry into the right vault location, then delete the source files. Also glance at `journal/inbox.md` itself, which is now just a pointer — if anything legacy-appended to it below the `---`, process that too.
+2. Process `journal/inbox/` — Levi may have dropped per-entry files from his phone since the last session. Read every `*.md` file in that folder (except `inbox_protocol.md`, which is the protocol doc itself), file each entry into the right vault location, then delete the source files. Also glance at `journal/inbox.md` itself, which is now just a pointer — if anything legacy-appended to it below the `---`, process that too.
 3. Read today's `daily_logs/YYYY-MM-DD.md` if it exists, otherwise yesterday's
 4. Read `memory/life_state.md` and `memory/session_handoff.md` (life-wide)
 5. If the work touches a domain, read that domain's relevant files (e.g., business/clipmeta/memory/* for ClipMeta work)
@@ -118,7 +118,7 @@ Use `[[basename]]` to reference other files. Obsidian's graph view depends on th
 Entries live as individual files in `journal/inbox/` (one file per thought, created by Levi's phone via the GitHub mobile app). The single-file `inbox.md` protocol was retired because phone-appends kept conflicting with desktop-clears on the same lines.
 
 When you find files in `journal/inbox/`:
-- List every `*.md` file in the folder **except** `README.md`
+- List every `*.md` file in the folder **except** `inbox_protocol.md` (that's the protocol doc, not an entry)
 - Read each file's content
 - Decide where each entry belongs (people/<name>.md, goals/, daily_logs/<today>.md, business/clipmeta/, etc.)
 - File it there with appropriate context (append, don't replace)

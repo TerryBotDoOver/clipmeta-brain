@@ -1,7 +1,7 @@
 # Inbox — protocol changed 2026-04-14
 
 > **This file is a pointer, not a capture target anymore.**
-> New entries go in `journal/inbox/` as individual files. See [[README]] there.
+> New entries go in `journal/inbox/` as individual files. See [[inbox_protocol]] there.
 
 ## Why
 
@@ -22,7 +22,7 @@ mobile app or github.com. Name it something like
 `journal/inbox/` (except `README.md`), files the content into the right
 vault locations, then **deletes** the source files from `journal/inbox/`.
 
-Full details: see [[README]] in `journal/inbox/`.
+Full details: see [[inbox_protocol]] in `journal/inbox/`.
 
 ## What happens to this file
 
