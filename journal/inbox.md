@@ -1,40 +1,30 @@
-# Inbox
+# Inbox — protocol changed 2026-04-14
 
-> Drop anything here from your phone (or anywhere else) when you're not at a laptop.
-> One-line entries are fine. Voice dictation is fine. Half-formed thoughts are fine.
-> I'll process this file at the start of every session and file the contents into the right vault locations.
+> **This file is a pointer, not a capture target anymore.**
+> New entries go in `journal/inbox/` as individual files. See [[README]] there.
 
-## Format
-Just write `## YYYY-MM-DD HH:mm — short description` at the top of each new entry, then your note below. Or skip the header entirely and just dump text. I'll figure it out.
+## Why
 
-## Examples of what to drop here
-- "remember to ask Marcus about his trip"
-- "ClipMeta idea: bulk regenerate could have a price preview"
-- "didn't sleep well last night, third night in a row"
-- "girlfriend mentioned she wants to do X this weekend"
-- "saw a cool drone shot technique I want to try"
-- "stepdad recommended a book — find out the title"
-- "feeling burned out, need to think about what to drop"
+Editing this single file from both the phone and the desktop kept producing
+git merge conflicts on the entries section. Phone was appending while desktop
+was clearing — same lines, same file, every session. The per-entry folder
+protocol structurally eliminates the race: phone only creates new files,
+desktop only deletes processed ones, so they never touch the same path.
 
-## How to write to this file from your phone
-**Option A: GitHub mobile app** (recommended)
-1. Open the GitHub app
-2. Navigate to TerryBotDoOver/clipmeta-brain
-3. Tap `journal/` → `inbox.md` → pencil icon
-4. Dictate or type
-5. Commit
+## New workflow
 
-**Option B: GitHub.dev in your phone browser**
-1. Go to github.com/TerryBotDoOver/clipmeta-brain in your phone browser
-2. Press `.` (period) on the URL or tap the "edit" icon
-3. Opens a full code editor in the browser
-4. Edit, commit
+**Phone capture:** Create a new file in `journal/inbox/` via the GitHub
+mobile app or github.com. Name it something like
+`2026-04-14-0930-short-slug.md`. Commit. Done — no more overwriting
+`inbox.md`.
 
-**Option C: Obsidian mobile** (if you set it up)
-Same vault, same file. Native Obsidian experience.
+**Desktop processing:** At session start, Claude reads every `*.md` file in
+`journal/inbox/` (except `README.md`), files the content into the right
+vault locations, then **deletes** the source files from `journal/inbox/`.
 
----
+Full details: see [[README]] in `journal/inbox/`.
 
-## Entries
+## What happens to this file
 
-(processed — filed into vault on 2026-04-12)
+This file is **append-only** going forward. No session or script clears or
+rewrites it. It stays here as a pointer and for history.

@@ -107,20 +107,27 @@ Use `[[basename]]` to reference other files. Obsidian's graph view depends on th
 
 ### At session start (every time)
 1. Read `working_context.md` first (highest signal — what was I doing?)
-2. Read `journal/inbox.md` — Levi may have dropped notes from his phone since the last session. Process them (file them into the right places, then clear them from inbox)
+2. Process `journal/inbox/` — Levi may have dropped per-entry files from his phone since the last session. Read every `*.md` file in that folder (except `README.md`), file each entry into the right vault location, then delete the source files. Also glance at `journal/inbox.md` itself, which is now just a pointer — if anything legacy-appended to it below the `---`, process that too.
 3. Read today's `daily_logs/YYYY-MM-DD.md` if it exists, otherwise yesterday's
 4. Read `memory/life_state.md` and `memory/session_handoff.md` (life-wide)
 5. If the work touches a domain, read that domain's relevant files (e.g., business/clipmeta/memory/* for ClipMeta work)
 6. Skim `mistakes.md` for recent corrections to avoid repeating
 7. Identify what to do, summarize the state, propose the move
 
-### Inbox processing rule
-When you find content in `journal/inbox.md`:
-- Read each entry
-- Decide where it actually belongs (people/<name>.md, goals/, journal/<date>.md, daily_logs/<today>.md, business/clipmeta/, etc.)
-- Move it there with appropriate context
-- Clear the entry from inbox.md (replace with `(empty)` placeholder)
+### Inbox processing rule (updated 2026-04-14)
+Entries live as individual files in `journal/inbox/` (one file per thought, created by Levi's phone via the GitHub mobile app). The single-file `inbox.md` protocol was retired because phone-appends kept conflicting with desktop-clears on the same lines.
+
+When you find files in `journal/inbox/`:
+- List every `*.md` file in the folder **except** `README.md`
+- Read each file's content
+- Decide where each entry belongs (people/<name>.md, goals/, daily_logs/<today>.md, business/clipmeta/, etc.)
+- File it there with appropriate context (append, don't replace)
+- **Delete the source file** from `journal/inbox/` — no need to leave empty placeholders, since the folder itself is the queue
 - Mention in your session-start summary: "processed N inbox entries from your phone"
+
+**Do not edit a file in `journal/inbox/` in place** — that would race with a possible phone write. Only read or delete.
+
+**Do not write new captures to `journal/inbox.md`** — that file is now an append-only pointer to the new folder protocol.
 
 ### During the session
 - Append to today's daily log at meaningful checkpoints (shipped a fix, made a decision, learned something, conversation worth remembering)
