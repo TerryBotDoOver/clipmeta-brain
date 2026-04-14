@@ -2,6 +2,8 @@
 
 > Two laptops, multiple roles, sometimes-confusing networking. This file is the source of truth.
 > Last updated 2026-04-11 from MEMORY.md + verified against running processes.
+>
+> For the "just tell me what to type" version of connecting, see [[howto]].
 
 ## The two machines
 

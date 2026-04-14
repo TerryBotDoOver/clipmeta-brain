@@ -3,6 +3,8 @@
 > The WSL Ubuntu home directory under user `lb12340`. Hermes lives here. So does most of the [[still_frequency|Still Frequency]] code, the [[site_rules|SiteRules]] project, and a bunch of one-off scripts.
 > Captured 2026-04-11 by inspecting the WSL filesystem.
 > This is essentially a hidden second workspace I had no idea existed before tonight.
+>
+> For "how do I actually launch Hermes after SSHing in", see [[howto]].
 
 ## Why this matters
 For my first day working with [[levi|Levi]] I treated `C:\Users\levic\.openclaw\workspace\` (Terry's workspace on Windows) as the only thing on the laptop. There's a SECOND workspace inside WSL Ubuntu that contains a lot of active project work. Both workspaces matter.

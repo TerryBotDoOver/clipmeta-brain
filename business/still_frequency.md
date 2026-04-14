@@ -262,33 +262,31 @@ Python pipeline (newer / more developed). Files directly in home dir:
 
 **The cross-machine pipeline:** Source footage on Dell network share `\\10.0.0.157\StillFrequency` → SSH/SCP to Predator → Render on RTX 4070 NVENC → Upload from Predator with YouTube API.
 
-## Channel status (updated 2026-04-11 from Levi's walkthrough)
-**3 videos on the channel:**
-1. ✅ **528Hz Hawaii Rough Coast — LIVE.** First video. Auto-made by Hermes, auto-uploaded. This is the only publicly viewable video.
-2. ❓ **528Hz (second attempt / re-upload)** — auto-made by Hermes, **uploaded by Levi himself** because Hermes ran low on tokens mid-upload. Needs investigation — it was stuck in YouTube processing as of last check.
-3. ❓ **Third video** — also stuck/unclear, needs investigation.
+## Channel status (updated 2026-04-13 — confirmed directly by Levi)
+**2 videos LIVE on the channel:**
+1. ✅ **528Hz Deep Sleep Music | Hawaii Coast Relaxation & Meditation | 10 Hours** — published ~2026-04-06, 11 views, 10:00:01 duration. The original Hermes-built video.
+2. ✅ **432Hz Deep Sleep Music | Calm Ocean Waters | 10 Hours Meditation** — published ~2026-04-12, 1 view, 10:48:20 duration. Second video.
 
-**Next in the pipeline (ready but not yet uploaded):**
-- 🟢 **432Hz Midnight Pass** — production-complete per the latest state
-  - 80 clips from the Midnight Pass drone project
-  - 6 Suno tracks blended
-  - Constraint shuffle passed (perfect — zero bad neighbors)
-  - Final duration: 10h 48m
-  - Ready for upload
+**Important:** the "3 videos with 2 stuck in processing" story from the previous brain version was WRONG. There are exactly two videos on the channel. The earlier mention of "432Hz Midnight Pass ready but not uploaded" appears to have been superseded — the 432Hz video that actually shipped is "Calm Ocean Waters", not Midnight Pass.
 
 **Production evidence the pipeline works end-to-end:**
-- First 528Hz Hawaii video was fully automated (Hermes rendered AND uploaded it)
-- Second video was fully automated on the render side (Hermes rendered it) but upload was manual because of Hermes's token budget — NOT because the pipeline couldn't do it
-- So at least twice now, the auto-render side has proven itself. The upload side has proven itself once.
+- Both live videos prove the auto-render + upload flow works
+- The pipeline rebuild at `C:\StillFrequency\` is the new deterministic replacement for the Hermes-based production flow
 
-### Why this matters
-This is **no longer** the "pipeline stalled at zero uploads" project the brain previously described. It has **shipped one live video, built another, and has 432Hz Midnight Pass queued up render-ready.** The gap between today and "hands-off factory" is smaller than it was 5 days ago.
+### Next video (rotation planning as of 2026-04-13)
+- **528Hz and 432Hz are both already shipped** — the next video must be a different frequency
+- **963Hz Crown Chakra is the logical next** — it was the original #2 slot in Levi's rotation plan, and 6 Suno tracks for it are already staged in `audio_library/` (Crown Glasslight, Crown Pulse, Crown Quartz Metonym, each with 2 variations)
+- **Still needed for 963Hz video:** drone footage staged in `video_projects/963hz_crown_chakra/` (TBD which drone project fits a crown chakra / cosmic spiritual theme)
+- **Target cadence:** 2 videos per week
 
-## Publishing strategy (locked in 2026-04-05)
-- **3 long-form videos per week:** Mon / Wed / Fri at 8 PM ET
-- **Companion Shorts same day** at 6 PM ET (30-60 sec clip + text overlay "[FREQ]Hz for 60 seconds. Feel the shift.")
-- **Frequency rotation order:** 528Hz ✅ → 963Hz next → 432Hz → 396Hz → 417Hz → 639Hz → 741Hz → 285Hz → 174Hz
-- Levi creates project folders manually; notifies Hermes. **No folder watcher cron** (deliberate — Levi wants curation control)
+## Publishing strategy (locked in 2026-04-05, updated 2026-04-13)
+- **2 long-form videos per week** (target cadence confirmed by Levi 2026-04-13)
+- **Frequency rotation — actual shipped state:**
+  - 528Hz ✅ SHIPPED (Hawaii Coast, ~2026-04-06)
+  - 432Hz ✅ SHIPPED (Calm Ocean Waters, ~2026-04-12)
+  - 963Hz ← NEXT (audio already staged in `audio_library/`, footage TBD)
+  - Then: 396Hz → 417Hz → 639Hz → 741Hz → 285Hz → 174Hz
+- Levi creates project folders manually; pipeline picks them up. **No folder watcher cron** (deliberate — Levi wants curation control)
 - Suno prompt for 963Hz already written and ready (ambient healing, crown chakra, no percussion, loops cleanly)
 - Target: 4+ hour average watch time per video. Kill any track under 60% retention to avoid algorithm death spiral.
 
@@ -316,10 +314,10 @@ Note that **Suno generation stays on Levi's side** — that's deliberate, not a 
 Yes, this can be fully hands-off on Levi's end. The core pipeline is real and has shipped. The remaining work is **5 specific gaps**, and **none of them are speculative** — each one is a known failure mode with a clear fix. The question is whether Levi wants to invest the ~1 week of focused work to close all 5 gaps, in exchange for a self-running sleep-music factory that could become the highest-ceiling project in the portfolio alongside ClipMeta.
 
 ## Things to find out / verify
-- **The 2 stuck-in-processing videos** — what's their actual YouTube status right now? (YouTube Data API `videos.list` with `status` part)
-- **Is 432Hz Midnight Pass actually uploaded yet**, or still sitting as a local file waiting for upload?
-- **Current subscriber count + view count on the live 528Hz Hawaii video** — first real data point for whether the niche is working
-- **Which version of the pipeline is authoritative** — the WSL Python pipeline or the openclaw JS pipeline? (Based on the walkthrough, it sounds like the Python one has evolved further, but worth confirming)
+- **Current subscriber count** — haven't checked. The first video has 11 views after 7 days, the second has 1 view after 1 day. Very early.
+- **What drone project to use for the 963Hz Crown Chakra video** — audio is staged, footage is not
+- **Whether the C:\StillFrequency pipeline rebuild can end-to-end render + upload** — the pieces are built and the Python deps + web dashboard are installed (as of 2026-04-13), but it has not yet run a real video end-to-end
+- **Pipeline authority:** As of 2026-04-13, `C:\StillFrequency\` (deterministic Python rebuild) is the authoritative pipeline going forward. The Hermes-based Python files in `/home/lb12340/` are legacy, and the openclaw JS pipeline is abandoned.
 
 ## Cross-references
 - [[business|Business hub]]
