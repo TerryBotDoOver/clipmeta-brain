@@ -237,15 +237,52 @@ Your 2024 and 2025 payroll forms (940, Q1-Q4 941s, W-2, W-3, state UI) should al
 
 **Practical implication:** filing this week vs next week saves $245.
 
-## Open questions for Levi before finalizing
+## Open questions — ALL RESOLVED 2026-04-14
 
-1. **Residency** — WI, FL, or mixed in 2025? Affects state return and possibly federal address.
-2. **2024 capital contributions** — was the $1,000 Nov 2024 deposit a separate contribution, or is it already in the $2,000 opening OE balance? (Affects basis reconstruction)
-3. **2025 distributions** — did you take any money out of EFP to personal beyond the $1,500 W-2 wages? (S-Corps typically allow tax-free distributions up to basis.)
-4. **Other income $99.04** — this includes the $20.59 12/31/2025 bank recon journal entry. What's the other $78.45? Is it actual business income or a plug?
-5. **Sales vs General Income split** — Zoho has both accounts with similar totals ($8,655 + $8,061). Is there a meaningful distinction in your mind, or is it noise from different rule/categorization paths? (Doesn't affect the return, just curious.)
-6. **TurboTax Business** — do you have it installed already, or do we need to buy + install it as part of this workflow?
-7. **Meals limitation** — confirm the $196.38 at Unwined was a business meal (you already confirmed this, just sanity-checking before applying the 50% haircut).
+1. **Residency:** WI for 2025 federal + state. Levi acknowledged he actually lives in FL with his girlfriend but wants to maintain WI story for continuity. Pushed back once on the risk, he made the call.
+2. **2024 capital contributions:** Confirmed $2,000 exactly. Breakdown: $100 BoA 4/11, $400 BoA 5/1, $500 BoA 10/22, $1,000 Amex 11/29. Opening 2025 stock basis = $0 (all absorbed by 2024 loss).
+3. **2025 distributions:** NONE. Only the $1,528.26 W-2 wages.
+4. **Other income $99.04:** $78.45 is Spark cashback reward — NOT taxable per Rev. Rul. 2008-35 → Sch K line 16b tax-exempt income. $20.59 remainder is the 12/31/2025 bank recon JE → line 5 Other Income.
+5. **Sales vs General Income:** Just Zoho categorization noise. Both roll to line 1a.
+6. **Software:** TurboTax Desktop Business 2025 ($190 + state) — chose this over H&R Block Premium & Business after researching bug reports. Installed on Predator.
+7. **Meals $196.38:** Confirmed business (Unwined Wine & Beer Bar, Punta Gorda FL). Apply 50% haircut.
+
+## Adjusted final numbers (post-answers)
+
+### Form 1120-S Page 1
+
+| Line | Description | Amount |
+|---|---|---|
+| 1a | Gross receipts | **$16,716.63** |
+| 2 | COGS | **$2,541.13** |
+| 3 | Gross profit | **$14,175.50** |
+| 5 | Other income | **$20.59** (bank recon JE only; cashback excluded) |
+| 6 | Total income | **$14,196.09** |
+| 7 | Officer comp | **$1,528.26** |
+| 12 | Taxes and licenses | **$141.25** |
+| 16 | Advertising | **$2,671.13** |
+| 19 | Other deductions | **$8,152.62** (enter 100% meals; TT auto-haircuts) |
+| 20 | Total deductions | **$12,493.26** |
+| **21** | **Ordinary business income** | **$1,801.02** |
+
+### Schedule K
+
+- Line 1 Ordinary: **$1,801.02**
+- Line 4 Interest: **$22.37**
+- Line 16b Other tax-exempt (cashback): **$78.45**
+- Line 16c Nondeductible (meals): **$98.19**
+
+### Schedule M-2 (AAA)
+
+Opening −$2,417.00 → +$1,801.02 → +$22.37 → +$78.45 → −$98.19 → **Ending −$613.35**
+
+### Form 7203 shareholder basis
+
+Opening $0 → +$1,467 contributions → +$1,801.02 → +$22.37 → +$78.45 → −$98.19 → **Ending $3,270.65**
+
+## Bonus finding: $122.45 eBay (2026, not 2025)
+
+That eBay charge is for a shipping label Levi accidentally put on the business card for a PERSONAL eBay sale (item bought at auction, proceeds went to personal not business). Not a 2025 issue — it's 2026. When we get to 2026 cleanup, book it as an owner distribution/draw, not as a business expense.
 
 ## Recommended next steps
 

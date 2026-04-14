@@ -39,7 +39,17 @@ See [[daily_logs/2026-04-14]] for full detail.
 - Discord bot token still broken
 - FB Page Access Token still expired
 
-### EFP tax prep open loops (from 2026-04-14 evening session)
+### EFP tax prep — IN PROGRESS (2026-04-14 afternoon)
+
+**Active:** Filing 2025 1120-S in TurboTax Desktop Business 2025 on the Predator. Levi moved to a new Claude Code terminal on the Dell mid-interview to get native clipboard paste for screenshots. Resume state and all numbers in `finance/tax_prep_2025/session_handoff.md` + `1120s_draft.md`. Last confirmed TurboTax screen: "Are You New to TurboTax Business?" with Yes selected, about to click Continue into entity info interview.
+
+**All 7 open questions answered today:** WI residency (filed WI despite FL reality), $2,000 2024 contributions confirmed, no 2025 distributions, $78.45 cashback nontaxable, Sales/General Income is noise, TurboTax Business chosen over H&R Block, Unwined $196.38 is 50% deductible business meal.
+
+**Key numbers locked:** Ordinary business income $1,801.02, ending AAA -$613.35, ending stock basis $3,270.65, K-1 box 1 = $1,801.02 + box 4a interest $22.37.
+
+**Plan for tonight:** TurboTax 1120-S federal → WI 5S state → break → FreeTaxUSA personal 1040 + WI Form 1 → e-file all before midnight. Penalty clock on 1120-S is $245/month shareholder-based.
+
+### Other EFP tax open loops (non-blocking)
 - **Personal 4868 extension** — must file tomorrow morning 4/15 (deadline today)
 - **2025 1120-S** — already past 3/15 deadline; file as soon as books support it (TurboTax Business)
 - **Delete broken "Google Ads" Zoho rule** (rule_id `6355719000000104025`) — catching every Spark charge as Advertising. 46 bad categorizations cleaned up tonight but rule still active and will re-poison new charges.
