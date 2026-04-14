@@ -262,6 +262,17 @@ Python pipeline (newer / more developed). Files directly in home dir:
 
 **The cross-machine pipeline:** Source footage on Dell network share `\\10.0.0.157\StillFrequency` → SSH/SCP to Predator → Render on RTX 4070 NVENC → Upload from Predator with YouTube API.
 
+## Upload policy (locked 2026-04-14)
+**Levi uploads Still Frequency videos manually via YouTube Studio. The pipeline renders and stops.** Reason: quality preservation. The Predator NVENC render at CQ 23 produces large 4K files (~130-150 GB for 10 hours). Re-encoding before upload would introduce generation loss that defeats the purpose of rendering at 4K in the first place. YouTube re-encodes on their side anyway, and a higher-quality source produces a better YouTube re-encode than an already-compressed source.
+
+The dashboard's "Build Final Video (no upload)" button now passes `skip_upload: true` automatically. The pipeline finishes after mux/validate/thumbnail and leaves the final file at:
+- **MP4:** `C:\Users\levic\Desktop\Still Frequency\upload_ready\{Theme Label}\{slug}_final.mp4`
+- **Thumbnail:** `C:\Users\levic\Desktop\Still Frequency\thumbnails\{slug}.jpg`
+
+Levi then uploads via YouTube Studio in the browser. Typical upload time for a 130+ GB file over a home connection is 12-18 hours, so he'll usually start the upload before bed and let it run overnight.
+
+**Do not suggest re-encoding Still Frequency videos to save upload time.** This was explicitly considered and rejected 2026-04-14. Full quality every time.
+
 ## Channel status (updated 2026-04-14)
 **2 videos LIVE + 1 rendering overnight:**
 1. ✅ **528Hz Deep Sleep Music | Hawaii Coast Relaxation & Meditation | 10 Hours** — published ~2026-04-06, 11 views, 10:00:01 duration. Original Hermes-built video.
