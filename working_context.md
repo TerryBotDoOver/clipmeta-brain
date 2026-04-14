@@ -7,35 +7,42 @@
 ---
 
 ## Active Focus
-Still Frequency dashboard built end-to-end (2026-04-13 late night). Web dashboard at localhost:3000 + FastAPI at localhost:8000 both running. Drag-drop file upload + New Project form + Mark Ready / Run buttons all wired up. Pipeline dry-run proved stages 1-4 work. Unicode print bug fixed. Thumbnail v3 layered composite (Hermes-style stars/waves/glow/ring on drone base) — Levi said "better but still not there", moving on. Channel state corrected: 2 videos live (528Hz Hawaii Coast + 432Hz Calm Ocean Waters). Next video: 963Hz Crown Chakra — Levi stages footage tomorrow when he has hard drive access.
+[[still_frequency|Still Frequency]] third video rendering overnight on the Predator RTX 4070. Levi went to bed ~02:30 AM 4/14 with the pipeline mid-run (SCP transfer phase). First real end-to-end test of the rebuilt pipeline — fixed 8 bugs tonight to get here. Expected completion ~04:30-06:30 AM.
 
-## Time-sensitive — read first next session
-1. **Google Ads API compliance follow-up** — if no reply by 2026-04-15, send a nudge email to ads-api-compliance@google.com. The response Levi sent on 2026-04-08 was thorough.
-2. **First Google Ads conversion watch** — now that the conversion label is fixed, the next real upgrade should register as a conversion. Check Google Ads dashboard.
-3. **[[helton|Helton A da Silva]] trial conversion check** — was expected at 2026-04-11 08:01 UTC. Verify in Stripe + Supabase.
+## First thing to do next session
+1. **Check pipeline status.** Hit `http://localhost:3000/projects/963hz_type_crown_chakra` OR directly read `C:\Users\levic\Desktop\Still Frequency\video_projects\963hz_type_crown_chakra/` for DONE / FAILED / RUNNING marker.
+2. **Latest log:** `C:\StillFrequency\logs\963hz_type_crown_chakra_20260414_022102.log`
+3. **If DONE:** verify private video is on YouTube with correct title "963Hz Deep Sleep Music | Crown Chakra Activation | 10 Hours Meditation". Levi will review + schedule publish.
+4. **If FAILED:** read the FAILED marker + tail log for root cause. I have no known blockers — every bug from tonight is fixed.
+5. **If still RUNNING:** tail the log, confirm NVENC is active on Predator (`nvidia-smi` via SSH), estimate remaining time.
 
-## Recently Completed (this session — 2026-04-12)
-- Meta Pixel: fixed duplicate firing (inline script + component both loading in layout.tsx). Deployed.
-- Google Ads: fixed conversion label (was `AW-18071437581` only, now `AW-18071437581/oEmICIrewpccEI2CkalD`). Verified end-to-end in browser with qa@clipmeta.app test account. Deployed.
-- Reddit Ads API: set up OAuth app ("ClipMeta Ads Reporter"), completed auth flow, pulled campaign data via API
-- Reddit Ads performance review: $19.03 spent, 56 clicks, CPC trending down to $0.18, 1 signup
-- Google Ads performance review (manual CSV): $20.42 spent, 34 clicks, 0 conversions (pre-fix)
-- Mission Control: built Ads tab in ClipMeta Hub with live Reddit data refresh + Google manual snapshot + combined summary
-- qa@clipmeta.app password reset to `ClipMetaQA2026!` for testing
-- Credentials saved: Reddit Ads creds in Claude memory, Hermes directory, and dashboard .env
-- Brain graph updated: [[clipmeta_ads]], [[current_state]], [[live_business_context]], [[meta_pixel_implementation]]
+## Session Summary (2026-04-13 late → 2026-04-14 early)
+**Massive night.** Dashboard built out end-to-end (New Project form, file upload, Run buttons). Predator SSH authorized + path fixed. Config upgraded to 4K. 8 bugs fixed (mostly Windows Unicode + PowerShell-vs-bash issues). Third video (`963hz_type_crown_chakra`, Polulu Valley drone footage, 58 clips, 6 fresh Suno tracks) running on the right path for the first time.
+
+See [[daily_logs/2026-04-14]] for full detail.
 
 ## Open Threads
-- Google Ads API compliance approval (follow up Apr 15)
-- helton conversion check
-- Metadata repetition fix
+- 3rd video upload verification (morning)
+- Thumbnail system still "not there" per Levi 4/13 — need to revisit
+- NewProjectForm placeholder fix (caused "type" in slug)
+- Rename `clips_1080p` → `clips_transcoded` in work dir
+- Supabase project creation (deferred)
+- Windows Task Scheduler install (deferred)
+- Cloudflare tunnel for phone access (deferred)
+- helton conversion check — NEVER resolved from 4/11 session
+- Google Ads API compliance follow-up (due today, 4/15)
+- Metadata Grader still undeployed
 - Discord bot token still broken
 - FB Page Access Token still expired
-- Metadata Grader still undeployed
 
 ## Notes for Next-Me
-- Reddit Ads API refresh: one-click in Mission Control Ads tab, or `POST /api/ads/reddit/refresh`
-- Google Ads data is manual until API approved — update via `POST /api/ads/google` with snapshot JSON
-- Conversion tracking now works on all 3 platforms (Google, Meta, Reddit) via ConversionTracker.tsx
-- qa@clipmeta.app test account: `ClipMetaQA2026!`
-- All Hermes-accessible creds at `/home/lb12340/.hermes/reddit-ads-*.json` and `google-ads-*.json`
+- **Pipeline lives at `C:\StillFrequency\`** with Python venv at `.venv\`
+- **Content at `C:\Users\levic\Desktop\Still Frequency\`**
+- **Dashboard:** FastAPI on 8000, Next.js on 3000, both running in background tasks at session end
+- **Predator is at `10.0.0.157` (LAN) or `ef-productions` (Tailscale)** — NOT `.158` which was in the old config
+- **Predator admin key file:** `C:\ProgramData\ssh\administrators_authorized_keys` — Dell's ed25519 pub key is in there now
+- **Pipeline trigger:** `POST /api/projects/{slug}/run` (via dashboard "Run Full Pipeline" button) spawns `python -m pipeline.run --project {slug}` and logs to `C:\StillFrequency\logs\{slug}_{timestamp}.log`
+- **Shuffle uses seed 42 first, then tries 5 backup seeds** if the target rule fails. Dashboard preview also uses seed 42 so dry-run and real run are consistent.
+- **Unicode print bulletproofing:** `run.py` reconfigures stdout to UTF-8 at import time; `trigger_run` sets `PYTHONIOENCODING=utf-8` + `PYTHONUTF8=1` on subprocess env. Future unicode in print statements won't crash.
+- **If Predator SSH breaks:** check `administrators_authorized_keys` perms (icacls output), check OpenSSH service on Predator, run `ssh -vv levib@10.0.0.157 whoami` from Dell to debug auth
+- **Config gotcha:** FastAPI loads config at import time, so `.json` file edits need a full FastAPI restart — `--reload` only watches `.py` files. Also watch for python zombie processes (multiprocessing children surviving parent kills) — use `Stop-Process python -Force` to wipe them all.

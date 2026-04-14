@@ -262,10 +262,11 @@ Python pipeline (newer / more developed). Files directly in home dir:
 
 **The cross-machine pipeline:** Source footage on Dell network share `\\10.0.0.157\StillFrequency` → SSH/SCP to Predator → Render on RTX 4070 NVENC → Upload from Predator with YouTube API.
 
-## Channel status (updated 2026-04-13 — confirmed directly by Levi)
-**2 videos LIVE on the channel:**
-1. ✅ **528Hz Deep Sleep Music | Hawaii Coast Relaxation & Meditation | 10 Hours** — published ~2026-04-06, 11 views, 10:00:01 duration. The original Hermes-built video.
+## Channel status (updated 2026-04-14)
+**2 videos LIVE + 1 rendering overnight:**
+1. ✅ **528Hz Deep Sleep Music | Hawaii Coast Relaxation & Meditation | 10 Hours** — published ~2026-04-06, 11 views, 10:00:01 duration. Original Hermes-built video.
 2. ✅ **432Hz Deep Sleep Music | Calm Ocean Waters | 10 Hours Meditation** — published ~2026-04-12, 1 view, 10:48:20 duration. Second video.
+3. 🏃 **963Hz Deep Sleep Music | Crown Chakra Activation | 10 Hours Meditation** — FIRST video through the rebuilt C:\StillFrequency pipeline. Rendering overnight 2026-04-14 on the Predator RTX 4070 at 4K 30fps h264_nvenc. Polulu Valley drone footage (58 clips), 6 fresh Crown Suno tracks. Slug: `963hz_type_crown_chakra` (typo in theme field, handled with title.txt override). Expected upload: ~04:30-06:30 AM private to YouTube. See [[daily_logs/2026-04-14]] for full detail.
 
 **Important:** the "3 videos with 2 stuck in processing" story from the previous brain version was WRONG. There are exactly two videos on the channel. The earlier mention of "432Hz Midnight Pass ready but not uploaded" appears to have been superseded — the 432Hz video that actually shipped is "Calm Ocean Waters", not Midnight Pass.
 
@@ -314,10 +315,25 @@ Note that **Suno generation stays on Levi's side** — that's deliberate, not a 
 Yes, this can be fully hands-off on Levi's end. The core pipeline is real and has shipped. The remaining work is **5 specific gaps**, and **none of them are speculative** — each one is a known failure mode with a clear fix. The question is whether Levi wants to invest the ~1 week of focused work to close all 5 gaps, in exchange for a self-running sleep-music factory that could become the highest-ceiling project in the portfolio alongside ClipMeta.
 
 ## Things to find out / verify
+- **963Hz upload result (morning of 4/14):** did the pipeline finish end-to-end? Is the private video on YouTube?
 - **Current subscriber count** — haven't checked. The first video has 11 views after 7 days, the second has 1 view after 1 day. Very early.
-- **What drone project to use for the 963Hz Crown Chakra video** — audio is staged, footage is not
-- **Whether the C:\StillFrequency pipeline rebuild can end-to-end render + upload** — the pieces are built and the Python deps + web dashboard are installed (as of 2026-04-13), but it has not yet run a real video end-to-end
-- **Pipeline authority:** As of 2026-04-13, `C:\StillFrequency\` (deterministic Python rebuild) is the authoritative pipeline going forward. The Hermes-based Python files in `/home/lb12340/` are legacy, and the openclaw JS pipeline is abandoned.
+- **Thumbnail quality:** Levi still not satisfied with the layered Pillow compositor as of 4/13. Need to revisit — possibly pivot to Canva templates or a Flux img2img enhancement pass.
+
+## Pipeline authority (as of 2026-04-14)
+`C:\StillFrequency\` (deterministic Python rebuild) is the authoritative pipeline. The Hermes-based Python files in `/home/lb12340/` are legacy; the openclaw JS pipeline is abandoned. The first real end-to-end run (963Hz Crown Chakra) started the night of 4/13-14 and is the production proof-of-life.
+
+### Dashboard running pattern
+- **FastAPI:** `cd C:\StillFrequency && .venv\Scripts\python -m uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload`
+- **Next.js:** `cd C:\StillFrequency\web && npm run dev`
+- **Access:** http://localhost:3000 (dashboard) or http://localhost:8000/docs (API docs)
+- **Run a project:** create via dashboard → drag-drop footage + audio → "Run Full Pipeline" button → tail `C:\StillFrequency\logs\{slug}_{timestamp}.log`
+
+### Known-working Predator path
+- **SSH target:** `levib@10.0.0.157` (LAN) or `ef-productions` (Tailscale)
+- **Auth:** Dell's `~/.ssh/id_ed25519` pubkey authorized in Predator's `C:\ProgramData\ssh\administrators_authorized_keys` (NOT user `.ssh\authorized_keys` — Windows OpenSSH gotcha for Administrators)
+- **FFmpeg path:** `C:/Users/levib/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.0.1-full_build/bin/ffmpeg.exe`
+- **NVENC encoder:** h264_nvenc confirmed available on RTX 4070 Laptop (8 GB VRAM, driver 572.83)
+- **Remote work dir:** `C:/Users/levib/Desktop/still_frequency_render/{clips,work,output}`
 
 ## Cross-references
 - [[business|Business hub]]
