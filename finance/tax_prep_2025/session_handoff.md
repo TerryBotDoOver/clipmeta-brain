@@ -1,10 +1,16 @@
-# Tax Session Handoff — 2026-04-14 16:30 PM
+# Tax Session Handoff — UPDATED 2026-04-14 11:00 PM
 
-> For a new Claude Code session resuming the 2025 tax filing. Read this first.
+> For a new Claude Code session resuming tax work. Read this first.
 
-## Mission
+## Status as of 2026-04-14 11:00 PM
 
-Levi is filing **both** his 2025 EFP 1120-S S-Corp return **and** his 2025 personal 1040 **by midnight tonight (2026-04-14)**. He's late on the 1120-S (deadline was 3/15, currently accruing $245/month shareholder penalty). Personal 1040 is due today.
+**1120-S: FILED.** E-filed via TurboTax Desktop Business 2025 at ~10:45 PM on 2026-04-14. Both federal 1120-S and WI Form 5S transmitted. Awaiting IRS + WI DOR acceptance confirmation.
+
+**Personal 1040: ON EXTENSION.** Filed Form 4868 via FreeTaxUSA at ~10:53 PM. $0 payment. New deadline: **October 15, 2026.**
+
+**Personal 1040 is the only remaining filing task.** All numbers are ready (K-1 generated, saved in Downloads folder).
+
+## Original Mission (completed)
 
 ## Software decisions (locked in)
 

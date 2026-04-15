@@ -65,26 +65,29 @@ See [[daily_logs/2026-04-14]] for full detail across all three sessions.
 - Discord bot token still broken
 - FB Page Access Token still expired
 
-### EFP tax prep — IN PROGRESS (2026-04-14 afternoon)
+### EFP tax — FILED (2026-04-14 evening)
 
-**Active:** Filing 2025 1120-S in TurboTax Desktop Business 2025 on the Predator. Levi moved to a new Claude Code terminal on the Dell mid-interview to get native clipboard paste for screenshots. Resume state and all numbers in `finance/tax_prep_2025/session_handoff.md` + `1120s_draft.md`. Last confirmed TurboTax screen: "Are You New to TurboTax Business?" with Yes selected, about to click Continue into entity info interview.
+**1120-S + WI Form 5S: FILED** via TurboTax Desktop Business 2025 on 2026-04-14 ~10:45 PM.
+- Ordinary business income: $1,802
+- K-1: Box 1 $1,802, Box 4a $22, Box 16B $78, Box 16C $98
+- Business code corrected from 512191 → 512100 for e-file
+- LLC address changed to FL on this return (was WI on 2024)
 
-**All 7 open questions answered today:** WI residency (filed WI despite FL reality), $2,000 2024 contributions confirmed, no 2025 distributions, $78.45 cashback nontaxable, Sales/General Income is noise, TurboTax Business chosen over H&R Block, Unwined $196.38 is 50% deductible business meal.
+**Personal 4868 extension: FILED** via FreeTaxUSA at ~10:53 PM. $0 payment. Extends to Oct 15 2026.
 
-**Key numbers locked:** Ordinary business income $1,801.02, ending AAA -$613.35, ending stock basis $3,270.65, K-1 box 1 = $1,801.02 + box 4a interest $22.37.
+**Personal 1040: ON EXTENSION** — due Oct 15 2026. File on FreeTaxUSA using K-1 + W-2 + capital loss carryforwards.
 
-**Plan for tonight:** TurboTax 1120-S federal → WI 5S state → break → FreeTaxUSA personal 1040 + WI Form 1 → e-file all before midnight. Penalty clock on 1120-S is $245/month shareholder-based.
+All files saved in `C:\Users\levic\Downloads\2025 Business Tax Stuff\`.
 
-### Other EFP tax open loops (non-blocking)
-- **Personal 4868 extension** — must file tomorrow morning 4/15 (deadline today)
-- **2025 1120-S** — already past 3/15 deadline; file as soon as books support it (TurboTax Business)
-- **Delete broken "Google Ads" Zoho rule** (rule_id `6355719000000104025`) — catching every Spark charge as Advertising. 46 bad categorizations cleaned up tonight but rule still active and will re-poison new charges.
-- **Create Insurance Expense account in Zoho UI** — Full Frame Insurance $104.58 temporarily in Other Expenses
-- **$122.45 eBay mystery charge** (2026-01-19) — Levi doesn't recognize it, possible fraud, left uncategorized in Zoho pending investigation
-- **Create retroactive invoices in Zoho for Jacey Bellefeuille** — $100/mo payment plan for April 24 wedding; first payment booked but no customer invoice
-- **Reconcile ~$1,669 Amex book-vs-bank gap** — likely Stripe/PayPal income booked outside the Amex feed
-- **Consolidate Automobile Expense into Vehicle account** — dedupe the two overlapping vehicle accounts, Vehicle wins
-- **Denise Bond flow:** Levi says she paid him multiple times (not just the $250 visible in uncategorized). Other payments presumably earlier/categorized. Flagged that handyman work is flowing through EFP (Levi's call — legitimate COGS).
+### EFP tax open loops (non-blocking)
+- **Check TurboTax e-file acceptance** — IRS + WI DOR, check in a few days
+- **FL F-1120 + Sunbiz Annual Report** — due May 1 2026 (EFP's first year in FL)
+- **Delete broken "Google Ads" Zoho rule** (rule_id `6355719000000104025`)
+- **Create Insurance Expense account in Zoho UI**
+- **$122.45 eBay charge** — confirmed personal, book as owner distribution in 2026
+- **Retroactive invoices for Jacey Bellefeuille** ($100/mo wedding plan)
+- **~$1,669 Amex book-vs-bank gap**
+- **Consolidate Automobile Expense into Vehicle account**
 
 ## Notes for Next-Me
 

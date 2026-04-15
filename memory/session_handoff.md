@@ -4,27 +4,19 @@
 > For ClipMeta-specific handoff, see [[business/clipmeta/memory/session_handoff]].
 > Read alongside [[working_context]] at session start.
 
-## Last Session: 2026-04-10 / 2026-04-11 (late-night)
+## Last Session: 2026-04-14 (evening)
 
-This was a big multi-thread session covering:
-1. Vault restructure into full life knowledge graph (Phase 1 + 2)
-2. SSH + Tailscale + key auth setup (cross-laptop access)
-3. Obsidian Git plugin install for cross-machine vault sync
-4. Mission Control dashboard discovery + cleanup (8 secrets moved to .env, MISSION_CONTROL.md synced)
-5. [[helton]] deep dive (correction: NOT a free user, Studio trial)
-6. Studio plan unit economics analysis
-7. Studio regen cap deployed (500/month, removes unbounded loss scenario)
-8. Two new persistent feedback rules saved (descriptive tool descriptions + plain-language approval explanations)
-9. Customer profile system added (`business/clipmeta/customers/`)
+**EFP 2025 1120-S tax return FILED.** Walked Levi through the entire TurboTax Desktop Business interview, screen by screen (~200 screenshots). Also filed personal Form 4868 extension via FreeTaxUSA.
 
 ### Where Levi is
-Excited about the system. Wants me to be a real long-term thinking partner. Explicitly asked for honest pushback, never agree-just-to-agree, never hallucinate, always base on facts.
+Relieved — the 1120-S filing that was accruing $245/month penalty is done. Personal 1040 is on extension until Oct 15. He's tired (filed at ~11 PM) and done for the night.
 
 ### What the next session should do
-1. **First thing:** Check whether [[helton]] converted at 2026-04-11 08:01 UTC. Query Stripe + Supabase.
-2. Process [[journal/inbox|journal/inbox.md]] in case Levi dropped notes from his phone overnight
-3. Check daily_logs for the most recent date and pick up where it left off
-4. Whatever Levi brings up
+1. **Check TurboTax e-file acceptance status** — IRS + WI DOR (may take 24-48 hrs)
+2. **Check 963Hz Crown Chakra YouTube upload status** — was uploading manually via YouTube Studio
+3. Process journal/inbox if Levi dropped phone notes
+4. FL F-1120 + Sunbiz Annual Report due May 1 — start planning
+5. Whatever Levi brings up
 
 ### People who exist in the brain now
 14 people files: [[keilly|Keilly]] (girlfriend), [[norma|Norma]] (mom), [[pete|Pete]] (stepdad), [[ron|Ron]] (biological dad, deceased), [[lori|Lori]] (stepmom), [[nick|Nick]] [[tyler|Tyler]] [[mikey|Mikey]] [[jake|Jake]] (4 brothers), [[dennis|Dennis]] (Pete's golf friend), [[morgan|Morgan]] [[alicia|Alicia]] [[lauren|Lauren]] [[natalie|Natalie]] (dinner friends from Keilly's North Port networking group). Plus customer profile [[helton]].
