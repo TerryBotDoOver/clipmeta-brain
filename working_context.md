@@ -7,13 +7,21 @@
 ---
 
 ## Active Focus
+**NEW 2026-04-17: First real video shipped.** 852Hz South Point rendered overnight on the Predator NVENC, 124.96 GB final MP4 + 23.24 MB Short at `C:\Users\levib\Desktop\Still Frequency\upload_ready\South Point\`. The dashboard-driven workflow (one gold button -> live stage-by-stage progress panel) worked end-to-end. This morning's work:
+- **Free thumbnail path:** `pipeline/thumbnail_ai.py::generate_footage_thumbnail()` extracts a real drone frame via ffmpeg, overlays brand text. $0 per thumbnail vs $0.19 for OpenAI. Same brand overlay code. `--mode footage` is default in `scripts/generate_thumbnails.py` now.
+- **Shorts hook library:** `pipeline/shorts_hooks.py` with 6 styles x 10 frequencies = 60+ unique 3-line hooks. Covers "STOP SCROLLING", "IF YOU LISTEN FOR 1 MINUTE...", "ANCIENT TONE MODERN SCIENCE", identity hooks, direct CTAs, calm invites. `shorts.py` now randomizes pick per build. Preserves legacy `hook_text` kwarg.
+- **FB/IG expansion plan:** `docs/social_expansion_plan.md` -- documented the browser-side account setup Levi owns (FB Page + IG Business + Page Access Token), and the `meta_publish.py` + `schedule_reels.py` modules I'll build once credentials are in. Not yet implemented -- waiting on his account setup.
+
+**NEW 2026-04-16: Still Frequency pipeline duplicated to the Predator + 10 videos prepped.** `C:\StillFrequency\` now runs on the Predator with local NVENC. Dashboards live on :3000 (Next.js) and :8000 (FastAPI). **10 new project folders staged** with drone footage + auto-generated title.txt, description.txt, PACKAGE.md (tags, thumbnail brief, Suno prompt, pinned comment, schedule). Master release queue at `C:\StillFrequency\UPLOAD_QUEUE.md` — 2/week Premieres, 5 weeks, week 1 is 396Hz Forest Dawn (Tue) + 741Hz Open Water (Fri). Cycle-based shuffle (`shuffle_clips_cycles`) guarantees no literal back-to-back and all clips before any repeat. Rerun the metadata generator at any time: `.venv\Scripts\python scripts\generate_metadata.py`. See [[daily_logs/2026-04-16]] for the full write-up.
+
 **Three parallel threads as of 2026-04-14 end-of-day:**
 
 1. **[[still_frequency|Still Frequency]] — 90-day commit started 2026-04-14.** Kill date: **2026-07-14.** 963Hz Crown Chakra shipped through the rebuilt pipeline (137.59 GB 4K final MP4). Manual upload in progress to YouTube. Kill criteria locked: subs ≥ 300, CTR ≥ 4%, avg view duration ≥ 2 min, at least one video ≥ 500 views. 3/4 hit = continue, 2/4 or worse = shut down and redirect to ClipMeta.
 
 2. **[[eternal_frame_productions|EFP]] 2025 tax prep** — actively filing 1120-S in TurboTax Business on the Predator (see section below). Books cleaned morning, 1120-S being filed tonight before midnight deadline. Personal 4868 extension also in queue.
 
-3. **[[clipmeta|ClipMeta]] background** — revenue-positive, ads tracking live, dashboard live. No active work this session, just compounding.
+3. **[[clipmeta|ClipMeta]] background** — revenue-positive, ads tracking live, dashboard live. **Numbers refreshed 2026-04-15:** 71 users (was ~55), $114.50 MRR (was ~$46.50), 6 paying customers. [[helton]] converted to Studio $49/mo. One new Starter trial in progress.
+   - **2026-04-17 Flight Deck redesign shipped** — complete visual overhaul of all 10 marketing surfaces (home, pricing, auth, blackbox, blog list + article, 5 /lp/*). New cinematic aesthetic: aurora mesh, floating pill nav, glass cards, HUD microcopy, cursor glow, film grain. New conversion sections on home: MetadataPreview live-output demo, BeforeAfter 8min→30sec, Comparison table vs TagMyClip/FreeMetadata, interactive SavingsCalculator, live StatsBar. Reusable `FlightDeckShell` component wraps all pages. Theme forced to dark globally. Commit `80f75df`. In-app pages (/(app)/*) intentionally untouched — kept utility-focused.
 
 ## First thing to do next session
 1. **Check 963Hz upload status** (manual YouTube Studio upload). If finished, verify private video looks right, upload the Short (file ready at `upload_ready/Type Crown Chakra/963hz_type_crown_chakra_short.mp4`), then Levi reviews and sets visibility.
